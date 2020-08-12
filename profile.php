@@ -13,7 +13,7 @@
 <body>
   <!-- Navigation -->
   <nav class="navbar navbar-light bg-primary">
-    <a href="main_feed.html" class="navbar-brand">Logo</a>
+    <a href="main_feed.php" class="navbar-brand">Logo</a>
     <form class="form-inline">
       <div class="input-group">
         <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2">

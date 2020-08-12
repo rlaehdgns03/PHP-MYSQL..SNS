@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!--style-->
-    <link rel="stylesheet" href="css/style.css">
-    <!--Bootstrap-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <!--Bootstrap-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<title>Login</title>
 </head>
@@ -17,11 +17,11 @@
 				<div class="card fat">
 					<div class="card-body">
 						<h4 class="card-title text-center">로그인</h4>
-							<form action="main_feed.html" method="POST">
+							<form action="main_feed.php" method="POST">
 
 								<div class="form-group">
 									<label for="id">아이디</label>
-                                    <input id="id" type="text" class="form-control" name="user_id" required autofocus placeholder="아이디를 입력하세요">
+                  <input id="id" type="text" class="form-control" name="user_id" required autofocus placeholder="아이디를 입력하세요">
 								</div>
 
 								<div class="form-group">
@@ -30,7 +30,7 @@
 											비밀번호를 잊으셨나요?
 										</a>
 									</label>
-                                    <input id="password" type="password" class="form-control" name="user_psw" required data-eye placeholder="비밀번호를 입력하세요">
+                    <input id="password" type="password" class="form-control" name="user_psw" required data-eye placeholder="비밀번호를 입력하세요">
 								</div>
 
 								<div class="form-group">
@@ -42,13 +42,13 @@
 
 								<div class="form-group m-0">
 									<button type="submit" class="btn btn-primary btn-block">
-										로그인
+										<a href="main_feed.php">로그인</a> 
 									</button>
 								</div>
 
 								<div class="mt-4 text-center">
                                     <p class="sign-up">아직 회원이 아니신가요?</p>
-                                    <a href="sign_up.html">회원가입</a>
+                                    <a href="sign_up.php">회원가입</a>
 								</div>
 							</form>
 						</div>

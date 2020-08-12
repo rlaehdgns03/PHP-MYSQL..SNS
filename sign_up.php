@@ -49,13 +49,13 @@
 
                 <div class="mt-4 text-center">
                     <p class="sign-up">이미 회원이신가요?</p>
-                    <a href="login.html">로그인하기</a>
+                    <a href="login.php">로그인하기</a>
                 </div>
               </form>
           </div>
         </div>
           <div class="footer">
-              Copyright &copy; 2020 &mdash; HCIT 
+              Copyright &copy; 2020 &mdash; HCIT
           </div>
       </div>
     </div>
