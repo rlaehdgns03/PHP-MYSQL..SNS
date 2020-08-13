@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Feed</title>
-    <!-- style -->
-    <link rel="stylesheet" href="css/style.css">
-    <!--Bootstrap-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  </head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main Feed</title>
+  <!-- style -->
+  <link rel="stylesheet" href="css/style.css">
+  <!--Bootstrap-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
 <body>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary static-top">
@@ -111,77 +111,77 @@
         <!-- //Post Upload Section -->
 
         <!-- Post1 -->
-            <div class="card gedf-card">
-                <div class="card-header">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="mr-2">
-                                <img class="rounded-circle" width="45" height="45" src="https://www.gotit.co.kr/wp-content/uploads/2019/03/origin_%EC%88%98%EC%A7%80%EB%AA%85%EB%B6%88%ED%97%88%EC%A0%84%EC%B2%AD%EC%88%9C%EC%97%AC%EC%8B%A0.jpg" alt="user-image">
-                            </div>
-                            <div class="ml-2">
-                                <div class="h5 m-0">user_id</div>
-                                <div class="h7 text-muted">여기에는 장소나 뭐.. 아무거나 추가정보(없어도 o)</div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="dropdown">
-                                <button class="btn btn-link dropdown-toggle" type="button" id="gedf-drop1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-ellipsis-h"></i>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
-                                    <div class="h6 dropdown-header">구성</div>
-                                    <a class="dropdown-item" href="#">저장</a>
-                                    <a class="dropdown-item" href="#">숨기기</a>
-                                </div>
-                            </div>
-                        </div>
+          <div class="card gedf-card">
+            <div class="card-header">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="mr-2">
+                    <img class="rounded-circle" width="45" height="45" src="https://www.gotit.co.kr/wp-content/uploads/2019/03/origin_%EC%88%98%EC%A7%80%EB%AA%85%EB%B6%88%ED%97%88%EC%A0%84%EC%B2%AD%EC%88%9C%EC%97%AC%EC%8B%A0.jpg" alt="user-image">
+                  </div>
+                  <div class="ml-2">
+                    <div class="h5 m-0">user_id</div>
+                    <div class="h7 text-muted">여기에는 장소나 뭐.. 아무거나 추가정보(없어도 o)</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="dropdown">
+                    <button class="btn btn-link dropdown-toggle" type="button" id="gedf-drop1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fa fa-ellipsis-h"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
+                      <div class="h6 dropdown-header">구성</div>
+                      <a class="dropdown-item" href="#">저장</a>
+                      <a class="dropdown-item" href="#">숨기기</a>
                     </div>
+                  </div>
                 </div>
+              </div>
+            </div>
 
-                <div class="card-body">
-                    <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>  10 min ago</div>
-                    <a class="card-link" href="#">
-                        <h5 class="card-title">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla, recusandae?</h5>
-                    </a>
-                    <p class="card-text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur expedita id nesciunt aperiam ipsa. Expedita, ut! Laboriosam, sint! Et, optio.
-                    </p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="card-link"><i class="fa fa-gittip"></i> 좋아요</a>
-                    <a href="#" class="card-link"><i class="fa fa-comment"></i> 댓글</a>
-                    <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> 공유</a>
-                </div>
+            <div class="card-body">
+              <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>  10 min ago</div>
+                <a class="card-link" href="#">
+                  <h5 class="card-title">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla, recusandae?</h5>
+                </a>
+                <p class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur expedita id nesciunt aperiam ipsa. Expedita, ut! Laboriosam, sint! Et, optio.
+                </p>
+              </div>
+              <div class="card-footer">
+                <a href="#" class="card-link"><i class="fa fa-gittip"></i> 좋아요</a>
+                <a href="#" class="card-link"><i class="fa fa-comment"></i> 댓글</a>
+                <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> 공유</a>
+              </div>
             </div>
         <!-- //Post1-->
 
         <!-- Post2 -->
-            <div class="card gedf-card">
-                <div class="card-header">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="mr-2">
-                                <img class="rounded-circle" width="45" src="https://picsum.photos/50/50" alt="">
-                            </div>
-                            <div class="ml-2">
-                                <div class="h5 m-0">이철수</div>
-                                <div class="h7 text-muted">여기에는 장소나 뭐.. 아무거나 추가정보(없어도 o)</div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="dropdown">
-                                <button class="btn btn-link dropdown-toggle" type="button" id="gedf-drop1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-ellipsis-h"></i>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
-                                    <div class="h6 dropdown-header">구성</div>
-                                    <a class="dropdown-item" href="#">저장</a>
-                                    <a class="dropdown-item" href="#">숨기기</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+          <div class="card gedf-card">
+            <div class="card-header">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="mr-2">
+                    <img class="rounded-circle" width="45" src="https://picsum.photos/50/50" alt="">
+                  </div>
+                  <div class="ml-2">
+                    <div class="h5 m-0">이철수</div>
+                    <div class="h7 text-muted">여기에는 장소나 뭐.. 아무거나 추가정보(없어도 o)</div>
+                  </div>
                 </div>
+                <div>
+                  <div class="dropdown">
+                    <button class="btn btn-link dropdown-toggle" type="button" id="gedf-drop1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fa fa-ellipsis-h"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
+                      <div class="h6 dropdown-header">구성</div>
+                        <a class="dropdown-item" href="#">저장</a>
+                        <a class="dropdown-item" href="#">숨기기</a>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
                 <div class="card-body">
                     <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i> 10 min ago</div>
