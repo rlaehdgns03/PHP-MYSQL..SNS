@@ -51,7 +51,6 @@
   <!-- Page Section -->
   <div class="container-fluid gedf-wrapper">
     <div class="row">
-
         <div class="col-md-3"></div>
         <!-- Post Section -->
         <div class="col-md-6 gedf-main">
@@ -72,29 +71,32 @@
                   </ul>
               </div>
               <form action="create.php" method="post">
-              <div class="card-body">
-                    <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
-                            <div class="form-group">
-                                <label class="sr-only" for="message">post</label>                                
-                                <textarea class="form-control" id="message" rows="3" name="description" placeholder="게시물을 작성해주세요."></textarea>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
-                            <div class="form-group">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="customFile">
-                                    <label class="custom-file-label" for="customFile">업로드할 사진을 선택해 주세요.</label>
-                                </div>
-                            </div>
-                            <div class="py-4"></div>
-                        </div>
+                <div class="card-body">
+                  <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+                      <div>
+                        <p><input type="text" name="title" placeholder="  제목을 적으세요."></p>
+                      </div>
+                      <div class="form-group">
+                        <label class="sr-only" for="message">post</label>                                
+                        <textarea class="form-control" id="message" rows="3" name="description" placeholder="게시물을 작성해주세요."></textarea>
+                      </div>
                     </div>
+                  <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
+                    <div class="form-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFile">
+                        <label class="custom-file-label" for="customFile">업로드할 사진을 선택해 주세요.</label>
+                      </div>
+                    </div>
+                    <div class="py-4"></div>
+                  </div>
+                </div>
                     <div class="btn-toolbar justify-content-between">
                         <div class="btn-group">
-                            <button type="submit" class="btn btn-primary">올리기</button>
+                            <input type="submit" class="btn btn-primary" value="올리기">
                         </div>
-                        </form>
+                </form>
                         <div class="btn-group">
                             <button id="btnGroupDrop1" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fa fa-globe"></i>
@@ -119,7 +121,7 @@
                     <img class="rounded-circle" width="45" height="45" src="https://www.gotit.co.kr/wp-content/uploads/2019/03/origin_%EC%88%98%EC%A7%80%EB%AA%85%EB%B6%88%ED%97%88%EC%A0%84%EC%B2%AD%EC%88%9C%EC%97%AC%EC%8B%A0.jpg" alt="user-image">
                   </div>
                   <div class="ml-2">
-                    <div class="h5 m-0">user_name</div>
+                    <div class="h5 m-0">김동훈</div>
                     <div class="h7 text-muted">작성일</div>
                   </div>
                 </div>
@@ -141,9 +143,7 @@
             <div class="card-body">
               <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>  작성 후 시간</div>
                 <p class="card-text">
-                    <?php
-                      echo $_POST['description'];
-                    ?>
+                  
                 </p>
               </div>
               <div class="card-footer">

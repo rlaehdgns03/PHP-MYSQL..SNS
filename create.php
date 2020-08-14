@@ -1,4 +1,4 @@
 <?php
-  file_put_contents('data/'.$_POST['description']);
+  file_put_contents("data/".$_POST["title"], $_POST["description"]);
   header('Location: /main_feed.php');
 ?>
