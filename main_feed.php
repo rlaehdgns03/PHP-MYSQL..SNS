@@ -1,3 +1,10 @@
+<?php
+  $conn = mysqli_connect(
+    "localhost", 
+    "root", 
+    "adsdads1", 
+    "post");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,7 +82,7 @@
                       </li>
                   </ul>
               </div>
-              <form action="create.php" method="post">
+              <form action="main_create.php" method="post">
                 <div class="card-body">
                   <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
@@ -96,33 +103,36 @@
             <!-- //Post Upload Section -->
 
         <!-- Post -->
-          <div class="card gedf-card">
-            <div class="card-header">
+        <?php
+      $sql = "SELECT * FROM topic";
+      $result = mysqli_query($conn, $sql);
+      while($row = mysqli_fetch_array($result)){
+        echo '<div class="card gedf-card">
+        <div class="card-header">
+          <div class="d-flex justify-content-between align-items-center">
               <div class="d-flex justify-content-between align-items-center">
-                <div class="d-flex justify-content-between align-items-center">
                   <div class="mr-2">
-                    <img class="rounded-circle" width="45" height="45" src="https://www.gotit.co.kr/wp-content/uploads/2019/03/origin_%EC%88%98%EC%A7%80%EB%AA%85%EB%B6%88%ED%97%88%EC%A0%84%EC%B2%AD%EC%88%9C%EC%97%AC%EC%8B%A0.jpg" alt="user-image">
+                      <img class="rounded-circle" width="45" src="https://www.gotit.co.kr/wp-content/uploads/2019/03/origin_%EC%88%98%EC%A7%80%EB%AA%85%EB%B6%88%ED%97%88%EC%A0%84%EC%B2%AD%EC%88%9C%EC%97%AC%EC%8B%A0.jpg" alt="">
                   </div>
                   <div class="ml-2">
-                    <div class="h5 m-0">작성자</div>
-                    <div class="h7 text-muted">작성일</div>
+                      <div class="h5 m-0">user_id</div>
+                      <div class="h7 text-muted">'.$row['created'].'</div>
                   </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="card-body">
-              <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>  작성 후 시간</div>
-                <p class="card-text">
-                  
-                </p>
-              </div>
-              <div class="card-footer">
-                <a href="#" class="card-link"><i class="fa fa-gittip"></i> 좋아요</a>
-                <a href="#" class="card-link"><i class="fa fa-comment"></i> 댓글</a>
-                <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> 공유</a>
               </div>
           </div>
+        </div>
+        <div class="card-body">
+            <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>작성 후 시간</div>
+              <p class="card-text">'.$row['description'].'</p>
+        </div>
+        <div class="card-footer">
+            <a href="#" class="card-link"><i class="fa fa-gittip"></i> 좋아요</a>
+            <a href="#" class="card-link"><i class="fa fa-comment"></i> 댓글</a>
+            <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> 공유</a>
+        </div>
+      </div>';
+      }
+    ?>
         <!-- //Post-->
         </div>
         <!-- //Post Section -->
