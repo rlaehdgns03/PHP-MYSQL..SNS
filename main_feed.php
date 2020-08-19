@@ -35,13 +35,23 @@
             </a>
           </li>
           <li class="nav-item">
-              <a class="user-image" href="profile.html">
+              <a class="user-image" href="profile.php">
               <img src="https://www.gotit.co.kr/wp-content/uploads/2019/03/origin_%EC%88%98%EC%A7%80%EB%AA%85%EB%B6%88%ED%97%88%EC%A0%84%EC%B2%AD%EC%88%9C%EC%97%AC%EC%8B%A0.jpg" alt="user-img" class="rounded-circle mt-1 ml-3 mr-2" width="30" height="30">
               </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="login_form.html">Logout</a>
           </li>
+          <form class="form-inline">
+            <div class="input-group">
+              <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-light" type="button" id="button-addon2">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </div>
+            </div>
+          </form>
         </ul>
       </div>
     </div>
@@ -63,56 +73,29 @@
                             게시물 작성    
                           </a>
                       </li>
-                      <li class="nav-item">
-                          <a class="nav-link" id="images-tab" data-toggle="tab" role="tab" aria-controls="images" aria-selected="false" href="#images">
-                            사진
-                          </a>
-                      </li>
                   </ul>
               </div>
               <form action="create.php" method="post">
                 <div class="card-body">
                   <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
-                      <div>
-                        <p><input type="text" name="title" placeholder="  제목을 적으세요."></p>
-                      </div>
                       <div class="form-group">
                         <label class="sr-only" for="message">post</label>                                
                         <textarea class="form-control" id="message" rows="3" name="description" placeholder="게시물을 작성해주세요."></textarea>
                       </div>
                     </div>
-                  <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
-                    <div class="form-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="customFile">
-                        <label class="custom-file-label" for="customFile">업로드할 사진을 선택해 주세요.</label>
-                      </div>
-                    </div>
-                    <div class="py-4"></div>
                   </div>
-                </div>
                     <div class="btn-toolbar justify-content-between">
                         <div class="btn-group">
                             <input type="submit" class="btn btn-primary" value="올리기">
                         </div>
-                </form>
-                        <div class="btn-group">
-                            <button id="btnGroupDrop1" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-globe"></i>
-                            </button>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
-                            <a class="dropdown-item" href="#"><i class="fa fa-globe"></i> 전체공개</a>
-                            <a class="dropdown-item" href="#"><i class="fa fa-users"></i> 친구만</a>
-                            <a class="dropdown-item" href="#"><i class="fa fa-user"></i> 나에게만</a>
-                        </div>
                     </div>
-                  </div>
+              </form>
             </div>
-        </div>
-        <!-- //Post Upload Section -->
+          </div>
+            <!-- //Post Upload Section -->
 
-        <!-- Post1 -->
+        <!-- Post -->
           <div class="card gedf-card">
             <div class="card-header">
               <div class="d-flex justify-content-between align-items-center">
@@ -121,20 +104,8 @@
                     <img class="rounded-circle" width="45" height="45" src="https://www.gotit.co.kr/wp-content/uploads/2019/03/origin_%EC%88%98%EC%A7%80%EB%AA%85%EB%B6%88%ED%97%88%EC%A0%84%EC%B2%AD%EC%88%9C%EC%97%AC%EC%8B%A0.jpg" alt="user-image">
                   </div>
                   <div class="ml-2">
-                    <div class="h5 m-0">김동훈</div>
+                    <div class="h5 m-0">작성자</div>
                     <div class="h7 text-muted">작성일</div>
-                  </div>
-                </div>
-                <div>
-                  <div class="dropdown">
-                    <button class="btn btn-link dropdown-toggle" type="button" id="gedf-drop1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-ellipsis-h"></i>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
-                      <div class="h6 dropdown-header">구성</div>
-                      <a class="dropdown-item" href="#">저장</a>
-                      <a class="dropdown-item" href="#">숨기기</a>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -152,11 +123,12 @@
                 <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> 공유</a>
               </div>
           </div>
-        <!-- //Post1-->
+        <!-- //Post-->
         </div>
-    <!-- //Post Section -->
+        <!-- //Post Section -->
       </div>
     </div>
+  <!-- //Page Section -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
