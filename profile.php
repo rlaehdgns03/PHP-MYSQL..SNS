@@ -107,6 +107,7 @@
                       <div class="h5 m-0">user_id</div>
                       <div class="h7 text-muted">'.$row['created'].'</div>
                   </div>
+                  
               </div>
           </div>
         </div>
