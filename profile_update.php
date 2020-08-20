@@ -61,21 +61,16 @@
     <div class="col-md-9 gedf-main">
       <div class="card gedf-card">
         <div class="card-header">
-            
         </div>
-        <form action="profile_create.php" method='post'>
           <div class="card-body">
             <div class="tab-content" id="myTabContent">
               <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
-                
               </div>
               <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
             </div>
           </div>
           <div class="btn-toolbar justify-content-between">
-            
           </div>
-        </form>
         </div>
       </div>
     <!-- //Post Upload Section -->
@@ -84,6 +79,8 @@
     <?php
       $sql = "SELECT * FROM topic";
       $result = mysqli_query($conn, $sql);
+      while($row = mysqli_fetch_array($result)){
+        if($row['tid'] === $_GET['tid']){
         echo '
         <div class="card gedf-card">
           <div class="card-header">
@@ -97,30 +94,34 @@
                         <div class="h7 text-muted">'.$row['created'].'</div>
                     </div>
                 </div>
+                
                 <div class="btn-group">
-                <a href="" class="btn btn-primary">수정</a>
-                <a href="" class="btn btn-primary">삭제</a>
+                <a href="profile_delete.php" class="btn btn-primary">삭제</a>
                 </div>
             </div>
           </div>
+          <form action="profile_process_update.php" method="post">
+          <input type="hidden" name="tid" value='.$_GET['tid'].'>
           <div class="card-body">
-          <form action="profile_create.php" method="post">
             <div class="card-body">
               <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
                   <div class="form-group">
                     <label class="sr-only" for="message">post</label>
-                    <textarea class="form-control" id="message" rows="3" name= "description">'.$row['description'].'</textarea>
+                    <textarea class="form-control" id="message" rows="3" name="description">'.$row['description'].'</textarea>
                   </div>
                 </div>
                 <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
               </div>
             </div>
-          </form>
+            <input type="submit" class="btn btn-primary" value="업로드">
           </div>
+          </form>
           <div class="card-footer">
           </div>
-      </div>'
+      </div>';
+        }
+      }    
     ?>
         
     <!-- //My Post -->

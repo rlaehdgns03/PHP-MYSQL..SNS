@@ -75,7 +75,7 @@
               <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
                 <div class="form-group">
                   <label class="sr-only" for="message">post</label>
-                  <textarea class="form-control" id="message" rows="3" name= "description" placeholder="게시물을 작성해주세요."></textarea>
+                  <textarea class="form-control" id="message" rows="3" name="description" placeholder="게시물을 작성해주세요."></textarea>
                 </div>
               </div>
               <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
@@ -110,7 +110,7 @@
                   </div>
                 </div>
                 <div class="btn-group">
-                  <a href="update.php?tid='.$row['tid'].'" class="btn btn-primary">수정</a> 
+                  <a href="profile_update.php?tid='.$row['tid'].'" class="btn btn-primary">수정</a> 
                   <a href="delete.php?tid='.$row['tid'].'" class="btn btn-primary">삭제</a>
                 </div>
               </div>
