@@ -83,7 +83,7 @@
           </div>
           <div class="btn-toolbar justify-content-between">
             <div class="btn-group">
-              <input type="submit" class="btn btn-primary" value="올리기">
+              <input type="submit" class="btn btn-primary" value="업로드">
             </div>
           </div>
         </form>
@@ -109,9 +109,10 @@
                     <div class="h7 text-muted">'.$row['created'].'</div>
                   </div>
                 </div>
-              <div class="btn-group edit">
-                <a href="update.php?tid='.$row['tid'].'" class="btn btn-primary">수정하기</a>
-              </div>
+                <div class="btn-group">
+                  <a href="update.php?tid='.$row['tid'].'" class="btn btn-primary">수정</a> 
+                  <a href="delete.php?tid='.$row['tid'].'" class="btn btn-primary">삭제</a>
+                </div>
               </div>
             </div>
 

@@ -98,7 +98,8 @@
                     </div>
                 </div>
                 <div class="btn-group">
-                <a href="update.php" class="btn btn-primary">수정하기</a>
+                <a href="" class="btn btn-primary">수정</a>
+                <a href="" class="btn btn-primary">삭제</a>
                 </div>
             </div>
           </div>
