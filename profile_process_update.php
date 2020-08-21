@@ -10,7 +10,7 @@
       description = '{$_POST['description']}',
       created = NOW()
     WHERE 
-      tid = '{$_POST['tid']}'
+      id = '{$_POST['id']}'
   ";   
   $result = mysqli_query($conn, $sql);
   header('Location: /profile.php');

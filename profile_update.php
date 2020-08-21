@@ -80,7 +80,7 @@
       $sql = "SELECT * FROM topic";
       $result = mysqli_query($conn, $sql);
       while($row = mysqli_fetch_array($result)){
-        if($row['tid'] === $_GET['tid']){
+        if($row['id'] === $_GET['id']){
         echo '
         <div class="card gedf-card">
           <div class="card-header">
@@ -96,14 +96,14 @@
                 </div>
                 <div class="btn-group">
                   <form action="profile_delete.php" method="post"> 
-                    <input type="hidden" name="tid" value='.$_GET['tid'].'>
+                    <input type="hidden" name="id" value='.$_GET['id'].'>
                     <input type="submit" class="btn btn-primary" value="삭제">
                   </form>
                 </div>
             </div>
           </div>
           <form action="profile_process_update.php" method="post">
-          <input type="hidden" name="tid" value='.$_GET['tid'].'>
+          <input type="hidden" name="id" value='.$_GET['id'].'>
           <div class="card-body">
             <div class="card-body">
               <div class="tab-content" id="myTabContent">

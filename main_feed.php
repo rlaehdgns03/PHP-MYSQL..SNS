@@ -94,7 +94,7 @@
                   </div>
                     <div class="btn-toolbar justify-content-between">
                         <div class="btn-group">
-                            <input type="submit" class="btn btn-primary" value="올리기">
+                            <input type="submit" class="btn btn-primary" value="업로드">
                         </div>
                     </div>
               </form>
@@ -121,7 +121,7 @@
                     </div>
                 </div>
                 <div class="btn-group">
-                  <a href="profile_update.php?tid='.$row['tid'].'" class="btn btn-primary">수정</a> 
+                  <a href="main_update.php?id='.$row['id'].'" class="btn btn-primary">수정</a> 
                 </div>
             </div>
           </div>

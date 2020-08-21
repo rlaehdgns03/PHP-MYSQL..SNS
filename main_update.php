@@ -61,32 +61,16 @@
     <div class="col-md-9 gedf-main">
       <div class="card gedf-card">
         <div class="card-header">
-            <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
-              <li class="nav-item">
-                <a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">
-                  게시물 작성    
-                </a>
-              </li>
-            </ul>
         </div>
-        <form action="profile_create.php" method='post'>
           <div class="card-body">
             <div class="tab-content" id="myTabContent">
               <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
-                <div class="form-group">
-                  <label class="sr-only" for="message">post</label>
-                  <textarea class="form-control" id="message" rows="3" name="description" placeholder="게시물을 작성해주세요."></textarea>
-                </div>
               </div>
               <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
             </div>
           </div>
           <div class="btn-toolbar justify-content-between">
-            <div class="btn-group">
-              <input type="submit" class="btn btn-primary" value="업로드">
-            </div>
           </div>
-        </form>
         </div>
       </div>
     <!-- //Post Upload Section -->
@@ -96,36 +80,50 @@
       $sql = "SELECT * FROM topic";
       $result = mysqli_query($conn, $sql);
       while($row = mysqli_fetch_array($result)){
+        if($row['id'] === $_GET['id']){
         echo '
-          <div class="card gedf-card">
-            <div class="card-header">
-              <div class="d-flex justify-content-between align-items-center">
+        <div class="card gedf-card">
+          <div class="card-header">
+            <div class="d-flex justify-content-between align-items-center">
                 <div class="d-flex justify-content-between align-items-center">
-                  <div class="mr-2">
-                    <img class="rounded-circle" width="45" src="https://www.gotit.co.kr/wp-content/uploads/2019/03/origin_%EC%88%98%EC%A7%80%EB%AA%85%EB%B6%88%ED%97%88%EC%A0%84%EC%B2%AD%EC%88%9C%EC%97%AC%EC%8B%A0.jpg" alt="">
-                  </div>
-                  <div class="ml-2">
-                    <div class="h5 m-0">user_id</div>
-                    <div class="h7 text-muted">'.$row['created'].'</div>
-                  </div>
+                    <div class="mr-2">
+                        <img class="rounded-circle" width="45" src="https://www.gotit.co.kr/wp-content/uploads/2019/03/origin_%EC%88%98%EC%A7%80%EB%AA%85%EB%B6%88%ED%97%88%EC%A0%84%EC%B2%AD%EC%88%9C%EC%97%AC%EC%8B%A0.jpg" alt="">
+                    </div>
+                    <div class="ml-2">
+                        <div class="h5 m-0">user_id</div>
+                        <div class="h7 text-muted">'.$row['created'].'</div>
+                    </div>
                 </div>
                 <div class="btn-group">
-                  <a href="profile_update.php?id='.$row['id'].'" class="btn btn-primary">수정</a>
+                  <form action="main_delete.php" method="post"> 
+                    <input type="hidden" name="id" value='.$_GET['id'].'>
+                    <input type="submit" class="btn btn-primary" value="삭제">
+                  </form>
                 </div>
+            </div>
+          </div>
+          <form action="main_process_update.php" method="post">
+          <input type="hidden" name="id" value='.$_GET['id'].'>
+          <div class="card-body">
+            <div class="card-body">
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+                  <div class="form-group">
+                    <label class="sr-only" for="message">post</label>
+                    <textarea class="form-control" id="message" rows="3" name="description">'.$row['description'].'</textarea>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
               </div>
             </div>
-
-            <div class="card-body">
-              <p class="card-text">'.$row['description'].'</p>
-            </div>
-
-            <div class="card-footer">
-                <a href="#" class="card-link"><i class="fa fa-gittip"></i> 좋아요</a>
-                <a href="#" class="card-link"><i class="fa fa-comment"></i> 댓글</a>
-                <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> 공유</a>
-            </div>
-          </div>';
-      }
+            <input type="submit" class="btn btn-primary" value="업로드">
+          </div>
+          </form>
+          <div class="card-footer">
+          </div>
+      </div>';
+        }
+      }    
     ?>
         
     <!-- //My Post -->
