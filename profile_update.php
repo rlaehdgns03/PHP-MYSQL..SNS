@@ -94,9 +94,11 @@
                         <div class="h7 text-muted">'.$row['created'].'</div>
                     </div>
                 </div>
-                
                 <div class="btn-group">
-                <a href="profile_delete.php" class="btn btn-primary">삭제</a>
+                  <form action="profile_delete.php" method="post"> 
+                    <input type="hidden" name="tid" value='.$_GET['tid'].'>
+                    <input type="submit" class="btn btn-primary" value="삭제">
+                  </form>
                 </div>
             </div>
           </div>

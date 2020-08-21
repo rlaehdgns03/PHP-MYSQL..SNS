@@ -110,8 +110,7 @@
                   </div>
                 </div>
                 <div class="btn-group">
-                  <a href="profile_update.php?tid='.$row['tid'].'" class="btn btn-primary">수정</a> 
-                  <a href="delete.php?tid='.$row['tid'].'" class="btn btn-primary">삭제</a>
+                  <a href="profile_update.php?tid='.$row['tid'].'" class="btn btn-primary">수정</a>
                 </div>
               </div>
             </div>
