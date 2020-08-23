@@ -93,7 +93,7 @@
 
     <!-- My Post -->
     <?php
-      $sql = "SELECT * FROM topic";
+      $sql = "SELECT * FROM topic ORDER BY created DESC";
       $result = mysqli_query($conn, $sql);
       while($row = mysqli_fetch_array($result)){
         echo '
