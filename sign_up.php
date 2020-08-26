@@ -17,7 +17,7 @@
         <div class="card fat">
           <div class="card-body">
             <h4 class="card-title text-center">회원가입</h4>
-              <form action="complete.html" method="POST">
+              <form action="complete.php" method="POST">
 
                 <div class="form-group">
                   <label for="name">이름</label>
@@ -31,7 +31,7 @@
 
                 <div class="form-group">
                     <label for="password">비밀번호</label>
-                    <input id="password" type="password" class="form-control" name="user_psw" required data-eye placeholder="비밀번호를 입력하세요">
+                    <input id="password" type="password" class="form-control" name="user_pw" required data-eye placeholder="비밀번호를 입력하세요">
                 </div>
 
                 <div class="form-group">
