@@ -12,7 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profile</title>
   <!-- style -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
   <!--Bootstrap-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -20,7 +20,7 @@
 <body>
   <!-- Navigation -->
   <nav class="navbar navbar-light bg-primary">
-    <a href="main_feed.php" class="navbar-brand">Logo</a>
+    <a href="../main_feed/main_feed.php" class="navbar-brand">Logo</a>
     <form class="form-inline">
       <div class="input-group">
         <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2">
@@ -61,71 +61,73 @@
     <div class="col-md-9 gedf-main">
       <div class="card gedf-card">
         <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">
+                  게시물 작성    
+                </a>
+              </li>
+            </ul>
         </div>
+        <form action="profile_create.php" method='post'>
           <div class="card-body">
             <div class="tab-content" id="myTabContent">
               <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+                <div class="form-group">
+                  <label class="sr-only" for="message">post</label>
+                  <textarea class="form-control" id="message" rows="3" name="description" placeholder="게시물을 작성해주세요."></textarea>
+                </div>
               </div>
               <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
             </div>
           </div>
           <div class="btn-toolbar justify-content-between">
+            <div class="btn-group">
+              <input type="submit" class="btn btn-primary" value="업로드">
+            </div>
           </div>
+        </form>
         </div>
       </div>
     <!-- //Post Upload Section -->
 
     <!-- My Post -->
     <?php
-      $sql = "SELECT * FROM topic";
+      $sql = "SELECT * FROM topic ORDER BY created DESC";
       $result = mysqli_query($conn, $sql);
       while($row = mysqli_fetch_array($result)){
-        if($row['id'] === $_GET['id']){
     ?>
-        <div class="card gedf-card">
-          <div class="card-header">
-            <div class="d-flex justify-content-between align-items-center">
+          <div class="card gedf-card">
+            <div class="card-header">
+              <div class="d-flex justify-content-between align-items-center">
                 <div class="d-flex justify-content-between align-items-center">
-                    <div class="mr-2">
-                        <img class="rounded-circle" width="45" src="https://www.gotit.co.kr/wp-content/uploads/2019/03/origin_%EC%88%98%EC%A7%80%EB%AA%85%EB%B6%88%ED%97%88%EC%A0%84%EC%B2%AD%EC%88%9C%EC%97%AC%EC%8B%A0.jpg" alt="">
-                    </div>
-                    <div class="ml-2">
-                        <div class="h5 m-0">user_id</div>
-                        <div class="h7 text-muted"><?=$row['created']?></div>
-                    </div>
-                </div>
-                <div class="btn-group">
-                  <form action="profile_delete.php" method="post" onsubmit="if(!confirm('삭제하시겠습니까?')){return false;}"> 
-                    <input type="hidden" name="id" value=<?=$_GET['id']?>>
-                    <input type="submit" class="btn btn-primary" value="삭제">
-                  </form>
-                </div>
-            </div>
-          </div>
-          <form action="profile_process_update.php" method="post">
-          <input type="hidden" name="id" value=<?=$_GET['id']?>>
-          <div class="card-body">
-            <div class="card-body">
-              <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
-                  <div class="form-group">
-                    <label class="sr-only" for="message">post</label>
-                    <textarea class="form-control" id="message" rows="3" name="description"><?=$row['description']?></textarea>
+                  <div class="mr-2">
+                    <img class="rounded-circle" width="45" src="https://www.gotit.co.kr/wp-content/uploads/2019/03/origin_%EC%88%98%EC%A7%80%EB%AA%85%EB%B6%88%ED%97%88%EC%A0%84%EC%B2%AD%EC%88%9C%EC%97%AC%EC%8B%A0.jpg" alt="">
+                  </div>
+                  <div class="ml-2">
+                    <div class="h5 m-0">user_id</div>
+                    <div class="h7 text-muted"><?=$row['created']?></div>
                   </div>
                 </div>
-                <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
+                <div class="btn-group">
+                  <a href="profile_update.php?id=<?=$row['id']?>" class="btn btn-primary">수정</a>
+                </div>
               </div>
             </div>
-            <input type="submit" class="btn btn-primary" value="업로드">
+
+            <div class="card-body">
+              <p class="card-text"><?=$row['description']?></p>
+            </div>
+
+            <div class="card-footer">
+                <a href="#" class="card-link"><i class="fa fa-gittip"></i> 좋아요</a>
+                <a href="#" class="card-link"><i class="fa fa-comment"></i> 댓글</a>
+                <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> 공유</a>
+            </div>
           </div>
-          </form>
-          <div class="card-footer">
-          </div>
-      </div>
-      <?php
-          }
-        }    
-      ?>
+          <?php
+            }
+          ?>
         
     <!-- //My Post -->
             </div>

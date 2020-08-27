@@ -12,7 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Main Feed</title>
   <!-- style -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
   <!--Bootstrap-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -42,12 +42,12 @@
             </a>
           </li>
           <li class="nav-item">
-              <a class="user-image" href="profile.php">
+              <a class="user-image" href="../profile/profile.php">
               <img src="https://www.gotit.co.kr/wp-content/uploads/2019/03/origin_%EC%88%98%EC%A7%80%EB%AA%85%EB%B6%88%ED%97%88%EC%A0%84%EC%B2%AD%EC%88%9C%EC%97%AC%EC%8B%A0.jpg" alt="user-img" class="rounded-circle mt-1 ml-3 mr-2" width="30" height="30">
               </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="login_form.html">Logout</a>
+            <a class="nav-link" href="../login/login.php">Logout</a>
           </li>
           <form class="form-inline">
             <div class="input-group">

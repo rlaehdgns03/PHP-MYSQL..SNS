@@ -12,7 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profile</title>
   <!-- style -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
   <!--Bootstrap-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -20,7 +20,7 @@
 <body>
   <!-- Navigation -->
   <nav class="navbar navbar-light bg-primary">
-    <a href="main_feed.php" class="navbar-brand">Logo</a>
+    <a href="../main_feed/main_feed.php" class="navbar-brand">Logo</a>
     <form class="form-inline">
       <div class="input-group">
         <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2">
@@ -95,14 +95,14 @@
                     </div>
                 </div>
                 <div class="btn-group">
-                  <form action="main_delete.php" method="post" onsubmit="if(!comfirm('삭제하시겠습니까?')){return false;}"> 
+                  <form action="profile_delete.php" method="post" onsubmit="if(!confirm('삭제하시겠습니까?')){return false;}"> 
                     <input type="hidden" name="id" value=<?=$_GET['id']?>>
                     <input type="submit" class="btn btn-primary" value="삭제">
                   </form>
                 </div>
             </div>
           </div>
-          <form action="main_process_update.php" method="post">
+          <form action="profile_process_update.php" method="post">
           <input type="hidden" name="id" value=<?=$_GET['id']?>>
           <div class="card-body">
             <div class="card-body">
