@@ -81,7 +81,7 @@
       $result = mysqli_query($conn, $sql);
       while($row = mysqli_fetch_array($result)){
         if($row['id'] === $_GET['id']){
-        echo '
+    ?>
         <div class="card gedf-card">
           <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
@@ -91,26 +91,26 @@
                     </div>
                     <div class="ml-2">
                         <div class="h5 m-0">user_id</div>
-                        <div class="h7 text-muted">'.$row['created'].'</div>
+                        <div class="h7 text-muted"><?=$row['created']?></div>
                     </div>
                 </div>
                 <div class="btn-group">
-                  <form action="main_delete.php" method="post"> 
-                    <input type="hidden" name="id" value='.$_GET['id'].'>
+                  <form action="main_delete.php" method="post" onsubmit="if(!comfirm('삭제하시겠습니까?')){return false;}"> 
+                    <input type="hidden" name="id" value=<?=$_GET['id']?>>
                     <input type="submit" class="btn btn-primary" value="삭제">
                   </form>
                 </div>
             </div>
           </div>
           <form action="main_process_update.php" method="post">
-          <input type="hidden" name="id" value='.$_GET['id'].'>
+          <input type="hidden" name="id" value=<?=$_GET['id']?>>
           <div class="card-body">
             <div class="card-body">
               <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
                   <div class="form-group">
                     <label class="sr-only" for="message">post</label>
-                    <textarea class="form-control" id="message" rows="3" name="description">'.$row['description'].'</textarea>
+                    <textarea class="form-control" id="message" rows="3" name="description"><?=$row['description']?></textarea>
                   </div>
                 </div>
                 <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
@@ -121,10 +121,11 @@
           </form>
           <div class="card-footer">
           </div>
-      </div>';
-        }
-      }    
-    ?>
+      </div>
+      <?php
+          }
+        }    
+      ?>
         
     <!-- //My Post -->
             </div>

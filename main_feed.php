@@ -104,11 +104,11 @@
 
         <!-- Post -->
         <?php
-      $sql = "SELECT * FROM topic ORDER BY created DESC";
-      $result = mysqli_query($conn, $sql);
-      while($row = mysqli_fetch_array($result)){
-        echo 
-        '<div class="card gedf-card">
+          $sql = "SELECT * FROM topic ORDER BY created DESC";
+          $result = mysqli_query($conn, $sql);
+          while($row = mysqli_fetch_array($result)){
+        ?> 
+        <div class="card gedf-card">
           <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="d-flex justify-content-between align-items-center">
@@ -117,18 +117,18 @@
                     </div>
                     <div class="ml-2">
                         <div class="h5 m-0">user_id</div>
-                        <div class="h7 text-muted">'.$row['created'].'</div>
+                        <div class="h7 text-muted"><?=$row['created']?></div>
                     </div>
                 </div>
                 <div class="btn-group">
-                  <a href="main_update.php?id='.$row['id'].'" class="btn btn-primary">수정</a> 
+                  <a href="main_update.php?id=<?=$row['id']?>" class="btn btn-primary">수정</a> 
                 </div>
             </div>
           </div>
 
           <div class="card-body">
               <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>작성 후 시간</div>
-                <p class="card-text">'.$row['description'].'</p>
+                <p class="card-text"><?=$row['description']?></p>
           </div>
 
           <div class="card-footer">
@@ -136,9 +136,10 @@
               <a href="#" class="card-link"><i class="fa fa-comment"></i> 댓글</a>
               <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> 공유</a>
           </div>
-        </div>';
-      }
-    ?>
+        </div>
+        <?php
+          }
+        ?>
         <!-- //Post-->
         </div>
         <!-- //Post Section -->
