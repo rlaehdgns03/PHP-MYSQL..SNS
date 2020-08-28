@@ -13,5 +13,5 @@
     )
   ";   
   $result = mysqli_query($conn, $sql);
-  header('Location: /profile.php');
+  header('Location: ./profile.php');
 ?>

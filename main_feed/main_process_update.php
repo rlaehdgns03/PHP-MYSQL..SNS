@@ -13,5 +13,5 @@
       id = '{$_POST['id']}'
   ";   
   $result = mysqli_query($conn, $sql);
-  header('Location: /main_feed.php');
+  header('Location: ./main_feed.php');
 ?>

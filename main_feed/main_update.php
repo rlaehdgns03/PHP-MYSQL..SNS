@@ -95,7 +95,7 @@
                     </div>
                 </div>
                 <div class="btn-group">
-                  <form action="main_delete.php" method="post" onsubmit="if(!comfirm('삭제하시겠습니까?')){return false;}"> 
+                  <form action="main_delete.php" method="post" onsubmit="if(!confirm('삭제하시겠습니까?')){return false;}"> 
                     <input type="hidden" name="id" value=<?=$_GET['id']?>>
                     <input type="submit" class="btn btn-primary" value="삭제">
                   </form>
