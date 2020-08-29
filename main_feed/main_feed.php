@@ -1,4 +1,7 @@
 <?php
+  session_start();
+?>
+<?php
   $conn = mysqli_connect(
     "localhost", 
     "root", 
@@ -47,7 +50,7 @@
               </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../login/login.php">Logout</a>
+            <a class="nav-link" href="../login/logout.php">Logout</a>
           </li>
           <form class="form-inline">
             <div class="input-group">
@@ -132,9 +135,8 @@
           </div>
 
           <div class="card-footer">
-              <a href="#" class="card-link"><i class="fa fa-gittip"></i> 좋아요</a>
-              <a href="#" class="card-link"><i class="fa fa-comment"></i> 댓글</a>
-              <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> 공유</a>
+              <a href="#" class="card-link"><i class="fa fa-gittip"></i></a>
+              <a href="#" class="card-link"><i class="fa fa-comment"></i></a>
           </div>
         </div>
         <?php

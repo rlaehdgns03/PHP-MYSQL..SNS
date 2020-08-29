@@ -21,17 +21,22 @@
 
                 <div class="form-group">
                   <label for="name">이름</label>
-                  <input id="name" type="text" class="form-control" name="name" required autofocus placeholder="이름을 입력하세요">
+                  <input id="name" type="text" class="form-control" name="name" placeholder="이름을 입력하세요">
                 </div>
 
                 <div class="form-group">
                     <label for="id">아이디</label>
-                    <input id="id" type="text" class="form-control" name="uID" required placeholder="아이디를 입력하세요">
+                    <input id="id" type="text" class="form-control" name="id" placeholder="아이디를 입력하세요">
                 </div>
 
                 <div class="form-group">
                     <label for="password">비밀번호</label>
-                    <input id="password" type="password" class="form-control" name="uPW" required data-eye placeholder="비밀번호를 입력하세요">
+                    <input id="password" type="password" class="form-control" name="password" data-eye placeholder="비밀번호를 입력하세요">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">비밀번호 확인</label>
+                    <input id="password" type="password" class="form-control" name="repassword" data-eye placeholder="비밀번호를 다시 입력하세요">
                 </div>
 
                 <div class="form-group m-0">
@@ -40,7 +45,7 @@
 
                 <div class="mt-4 text-center">
                     <p class="sign-up">이미 회원이신가요?</p>
-                    <a href="login.php">로그인하기</a>
+                    <a href="./login.php">로그인하기</a>
                 </div>
               </form>
           </div>

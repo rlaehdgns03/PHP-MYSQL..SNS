@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -21,12 +24,12 @@
 
 								<div class="form-group">
 									<label for="id">아이디</label>
-                  <input id="id" type="text" class="form-control" name="user_id" required autofocus placeholder="아이디를 입력하세요">
+                  <input id="id" type="text" class="form-control" name="id" placeholder="아이디를 입력하세요">
 								</div>
 
 								<div class="form-group">
 									<label for="password">비밀번호</label>
-                  <input id="password" type="password" class="form-control" name="user_pw" required data-eye placeholder="비밀번호를 입력하세요">
+                  <input id="password" type="password" class="form-control" name="password" data-eye placeholder="비밀번호를 입력하세요">
 								</div>
 
 								<div class="form-group m-0">

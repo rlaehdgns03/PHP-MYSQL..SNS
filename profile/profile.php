@@ -1,4 +1,7 @@
 <?php
+  session_start();
+?>
+<?php
   $conn = mysqli_connect(
     "localhost", 
     "root", 
@@ -120,9 +123,8 @@
             </div>
 
             <div class="card-footer">
-                <a href="#" class="card-link"><i class="fa fa-gittip"></i> 좋아요</a>
-                <a href="#" class="card-link"><i class="fa fa-comment"></i> 댓글</a>
-                <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> 공유</a>
+                <a href="#" class="card-link"><i class="fa fa-gittip"></i></a>
+                <a href="#" class="card-link"><i class="fa fa-comment"></i></a>
             </div>
           </div>
           <?php
