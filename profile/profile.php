@@ -1,5 +1,10 @@
 <?php
-  session_start();
+session_start();
+if(!isset($_SESSION['is_login'])){
+  
+  echo "<script>alert('로그인이 필요합니다.'); location.href='../login/login.php';</script>";
+
+}
 ?>
 <?php
   $conn = mysqli_connect(
@@ -22,8 +27,8 @@
 </head>
 <body>
   <!-- Navigation -->
-  <nav class="navbar navbar-light bg-primary">
-    <a href="../main_feed/main_feed.php" class="navbar-brand">Logo</a>
+  <nav class="navbar navbar-dark bg-primary">
+    <a href="../main_feed/main_feed.php" class="navbar-brand">SNS</a>
     <form class="form-inline">
       <div class="input-group">
         <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2">
@@ -46,9 +51,7 @@
       <div class="card">
         <div class="card-body text-center">
           <img class="rounded-circle img-responsive center-block"  width="200" height="200"  src="https://www.gotit.co.kr/wp-content/uploads/2019/03/origin_%EC%88%98%EC%A7%80%EB%AA%85%EB%B6%88%ED%97%88%EC%A0%84%EC%B2%AD%EC%88%9C%EC%97%AC%EC%8B%A0.jpg" alt="user-image">
-          <div class="h5 text-center mt-4">user_id</div>
-          <div class="h7 text-muted mt-4">name: 이름</div>
-          <div class="h7 text-muted mt-2">email: xxxxxxx.gmail.com</div>          
+          <div class="h5 text-center mt-4"><?=$_SESSION['name']?></div>       
         </div>
           <ul class="list-group list-group-flush text-center">
             <li class="list-group-item">
@@ -73,6 +76,7 @@
             </ul>
         </div>
         <form action="profile_create.php" method='post'>
+        <input type="hidden" name="no" value=<?=$_SESSION['no']?>>
           <div class="card-body">
             <div class="tab-content" id="myTabContent">
               <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
@@ -96,7 +100,7 @@
 
     <!-- My Post -->
     <?php
-      $sql = "SELECT * FROM topic ORDER BY created DESC";
+      $sql = "SELECT topic.no, description, created, name FROM topic LEFT JOIN user ON topic.user_no = user.no WHERE user.no = ".$_SESSION['no']." ORDER BY created DESC";
       $result = mysqli_query($conn, $sql);
       while($row = mysqli_fetch_array($result)){
     ?>
@@ -108,12 +112,12 @@
                     <img class="rounded-circle" width="45" src="https://www.gotit.co.kr/wp-content/uploads/2019/03/origin_%EC%88%98%EC%A7%80%EB%AA%85%EB%B6%88%ED%97%88%EC%A0%84%EC%B2%AD%EC%88%9C%EC%97%AC%EC%8B%A0.jpg" alt="">
                   </div>
                   <div class="ml-2">
-                    <div class="h5 m-0">user_id</div>
+                    <div class="h5 m-0"><?=$_SESSION['name']?></div>
                     <div class="h7 text-muted"><?=$row['created']?></div>
                   </div>
                 </div>
                 <div class="btn-group">
-                  <a href="profile_update.php?id=<?=$row['id']?>" class="btn btn-primary">수정</a>
+                  <a href="profile_update.php?no=<?=$row['no']?>" class="btn btn-primary">수정</a>
                 </div>
               </div>
             </div>

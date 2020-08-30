@@ -1,4 +1,12 @@
 <?php
+session_start();
+if(!isset($_SESSION['is_login'])){
+  
+  echo "<script>alert('로그인이 필요합니다.'); location.href='../login/login.php';</script>";
+
+}
+?>
+<?php
   $conn = mysqli_connect(
     "localhost", 
     "root", 
@@ -19,8 +27,8 @@
 </head>
 <body>
   <!-- Navigation -->
-  <nav class="navbar navbar-light bg-primary">
-    <a href="main_feed.php" class="navbar-brand">Logo</a>
+  <nav class="navbar navbar-dark bg-primary">
+    <a href="main_feed.php" class="navbar-brand">SNS</a>
     <form class="form-inline">
       <div class="input-group">
         <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2">
@@ -43,9 +51,7 @@
       <div class="card">
         <div class="card-body text-center">
           <img class="rounded-circle img-responsive center-block"  width="200" height="200"  src="https://www.gotit.co.kr/wp-content/uploads/2019/03/origin_%EC%88%98%EC%A7%80%EB%AA%85%EB%B6%88%ED%97%88%EC%A0%84%EC%B2%AD%EC%88%9C%EC%97%AC%EC%8B%A0.jpg" alt="user-image">
-          <div class="h5 text-center mt-4">user_id</div>
-          <div class="h7 text-muted mt-4">name: 이름</div>
-          <div class="h7 text-muted mt-2">email: xxxxxxx.gmail.com</div>          
+          <div class="h5 text-center mt-4"><?=$_SESSION['name']?></div>         
         </div>
           <ul class="list-group list-group-flush text-center">
             <li class="list-group-item">
@@ -80,7 +86,7 @@
       $sql = "SELECT * FROM topic";
       $result = mysqli_query($conn, $sql);
       while($row = mysqli_fetch_array($result)){
-        if($row['id'] === $_GET['id']){
+        if($row['no'] === $_GET['no']){
     ?>
         <div class="card gedf-card">
           <div class="card-header">
@@ -90,20 +96,20 @@
                         <img class="rounded-circle" width="45" src="https://www.gotit.co.kr/wp-content/uploads/2019/03/origin_%EC%88%98%EC%A7%80%EB%AA%85%EB%B6%88%ED%97%88%EC%A0%84%EC%B2%AD%EC%88%9C%EC%97%AC%EC%8B%A0.jpg" alt="">
                     </div>
                     <div class="ml-2">
-                        <div class="h5 m-0">user_id</div>
+                        <div class="h5 m-0"><?=$_SESSION['name']?></div>
                         <div class="h7 text-muted"><?=$row['created']?></div>
                     </div>
                 </div>
                 <div class="btn-group">
                   <form action="main_delete.php" method="post" onsubmit="if(!confirm('삭제하시겠습니까?')){return false;}"> 
-                    <input type="hidden" name="id" value=<?=$_GET['id']?>>
+                    <input type="hidden" name="no" value=<?=$_GET['no']?>>
                     <input type="submit" class="btn btn-primary" value="삭제">
                   </form>
                 </div>
             </div>
           </div>
           <form action="main_process_update.php" method="post">
-          <input type="hidden" name="id" value=<?=$_GET['id']?>>
+          <input type="hidden" name="no" value=<?=$_GET['no']?>>
           <div class="card-body">
             <div class="card-body">
               <div class="tab-content" id="myTabContent">

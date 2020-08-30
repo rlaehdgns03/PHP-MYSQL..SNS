@@ -10,7 +10,7 @@
 
   if($_POST["id"] == "" || $_POST["password"] == ""){ 
 
-    echo '<script> location.href="./login.php"; </script>'; 
+    echo '<script>alert("아이디, 비밀번호를 입력해주세요."); location.href="./login.php"; </script>'; 
 
   } else { 
 
@@ -24,6 +24,8 @@
 
         $_SESSION['id'] = $member["id"]; 
         $_SESSION['name'] = $member["name"]; 
+        $_SESSION['is_login'] = true;
+        $_SESSION['no'] = $member["no"];
         echo "<script>location.href='../main_feed/main_feed.php';</script>"; 
 
       } else{ 

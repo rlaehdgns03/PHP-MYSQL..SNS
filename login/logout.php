@@ -5,6 +5,7 @@ $conn = mysqli_connect(
   "root", 
   "adsdads1", 
   "post");
-session_destroy(); 
+session_destroy();
+header('Location: ./login.php');
 ?> 
-<meta http-equiv="refresh" content="0; url=./login.php">
+

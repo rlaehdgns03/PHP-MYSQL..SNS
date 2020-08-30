@@ -6,10 +6,11 @@
     "post");
   $sql = "
   INSERT INTO topic
-    (description, created)
+    (description, created, user_no)
     VALUES(
       '{$_POST['description']}',
-      NOW()
+      NOW(),
+      '{$_POST['no']}'
     )
   ";   
   $result = mysqli_query($conn, $sql);

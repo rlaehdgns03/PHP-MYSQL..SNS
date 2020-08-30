@@ -1,5 +1,10 @@
 <?php
-  session_start();
+session_start();
+if(!isset($_SESSION['is_login'])){
+  
+  echo "<script>alert('로그인이 필요합니다.'); location.href='../login/login.php';</script>";
+
+}
 ?>
 <?php
   $conn = mysqli_connect(
@@ -24,7 +29,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary static-top">
     <div class="container">
-      <a class="navbar-brand" href="main_feed.php">Logo</a>
+      <a class="navbar-brand" href="main_feed.php">SNS</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -86,6 +91,7 @@
                   </ul>
               </div>
               <form action="main_create.php" method="post">
+              <input type="hidden" name="no" value=<?=$_SESSION['no']?>>
                 <div class="card-body">
                   <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
@@ -107,7 +113,7 @@
 
         <!-- Post -->
         <?php
-          $sql = "SELECT * FROM topic ORDER BY created DESC";
+          $sql = "SELECT * FROM topic LEFT JOIN user ON topic.user_no = user.no ORDER BY created DESC";
           $result = mysqli_query($conn, $sql);
           while($row = mysqli_fetch_array($result)){
         ?> 
@@ -119,12 +125,20 @@
                         <img class="rounded-circle" width="45" src="https://www.gotit.co.kr/wp-content/uploads/2019/03/origin_%EC%88%98%EC%A7%80%EB%AA%85%EB%B6%88%ED%97%88%EC%A0%84%EC%B2%AD%EC%88%9C%EC%97%AC%EC%8B%A0.jpg" alt="">
                     </div>
                     <div class="ml-2">
-                        <div class="h5 m-0">user_id</div>
+                        <div class="h5 m-0"><?=$row['name']?></div>
                         <div class="h7 text-muted"><?=$row['created']?></div>
                     </div>
                 </div>
                 <div class="btn-group">
-                  <a href="main_update.php?id=<?=$row['id']?>" class="btn btn-primary">수정</a> 
+                  <?php
+
+                    if($row['name'] === $_SESSION['name']){
+
+                  ?>
+                  <a href="main_update.php?no=<?=$row['no']?>" class="btn btn-primary">수정</a> 
+                  <?php
+                    }
+                  ?>
                 </div>
             </div>
           </div>
