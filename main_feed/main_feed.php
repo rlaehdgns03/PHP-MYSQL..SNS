@@ -51,7 +51,7 @@ if(!isset($_SESSION['is_login'])){
           </li>
           <li class="nav-item">
               <a class="user-image" href="../profile/profile.php">
-              <img src="https://www.gotit.co.kr/wp-content/uploads/2019/03/origin_%EC%88%98%EC%A7%80%EB%AA%85%EB%B6%88%ED%97%88%EC%A0%84%EC%B2%AD%EC%88%9C%EC%97%AC%EC%8B%A0.jpg" alt="user-img" class="rounded-circle mt-1 ml-3 mr-2" width="30" height="30">
+              <img src="https://scontent-sin6-2.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/92250598_1063915177321734_748581756498782108_n.jpg?_nc_ht=scontent-sin6-2.cdninstagram.com&_nc_cat=106&_nc_ohc=JN52q2w3T64AX_Q4qvV&oh=8035593b9ff284f4ccdc0bef999fc345&oe=5F64C329" alt="user-img" class="rounded-circle mt-1 ml-3 mr-2" width="30" height="30">
               </a>
           </li>
           <li class="nav-item">
@@ -113,7 +113,7 @@ if(!isset($_SESSION['is_login'])){
 
         <!-- Post -->
         <?php
-          $sql = "SELECT * FROM topic LEFT JOIN user ON topic.user_no = user.no ORDER BY created DESC";
+          $sql = "SELECT topic.no, description, created, user_no, name, likes FROM topic LEFT JOIN user ON topic.user_no = user.no ORDER BY created DESC";
           $result = mysqli_query($conn, $sql);
           while($row = mysqli_fetch_array($result)){
         ?> 
@@ -122,7 +122,7 @@ if(!isset($_SESSION['is_login'])){
             <div class="d-flex justify-content-between align-items-center">
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="mr-2">
-                        <img class="rounded-circle" width="45" src="https://www.gotit.co.kr/wp-content/uploads/2019/03/origin_%EC%88%98%EC%A7%80%EB%AA%85%EB%B6%88%ED%97%88%EC%A0%84%EC%B2%AD%EC%88%9C%EC%97%AC%EC%8B%A0.jpg" alt="">
+                        <img class="rounded-circle" width="45" src="https://scontent-sin6-2.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/92250598_1063915177321734_748581756498782108_n.jpg?_nc_ht=scontent-sin6-2.cdninstagram.com&_nc_cat=106&_nc_ohc=JN52q2w3T64AX_Q4qvV&oh=8035593b9ff284f4ccdc0bef999fc345&oe=5F64C329" alt="">
                     </div>
                     <div class="ml-2">
                         <div class="h5 m-0"><?=$row['name']?></div>
@@ -149,8 +149,28 @@ if(!isset($_SESSION['is_login'])){
           </div>
 
           <div class="card-footer">
-              <a href="#" class="card-link"><i class="fa fa-gittip"></i></a>
-              <a href="#" class="card-link"><i class="fa fa-comment"></i></a>
+          <form action="./main_likes.php" method="post">
+          <?php 
+					$results = mysqli_query($conn, "SELECT * FROM likes WHERE user_no=".$_SESSION['no']." AND description_no=".$row['no']."");
+        
+					if (mysqli_num_rows($results) === 1 ) { ?>
+	
+            <a href="./main_likes.php?likes=liked&no=<?=$row['no']?>" class="card-link"><i class="fa fa-heart"></i></a>
+            <a href="#" class="card-link"><i class="fa fa-comment-o"></i></a>
+
+          <?php
+            }else {
+          ?>
+    
+            <a href="./main_likes.php?likes=unliked&no=<?=$row['no']?>" class="card-link"><i class="fa fa-heart-o"></i></a> 
+            <a href="#" class="card-link"><i class="fa fa-comment-o"></i></a>
+
+          <?php
+            }
+          ?>
+          </form>
+					<div class=""><?=$row['likes']?> 명이 좋아합니다</div>
+            
           </div>
         </div>
         <?php
