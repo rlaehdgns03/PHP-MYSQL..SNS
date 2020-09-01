@@ -149,7 +149,7 @@ if(!isset($_SESSION['is_login'])){
           </div>
 
           <div class="card-footer">
-          <form action="./main_likes.php" method="post">
+          
           <?php 
 					$results = mysqli_query($conn, "SELECT * FROM likes WHERE user_no=".$_SESSION['no']." AND description_no=".$row['no']."");
         
@@ -168,7 +168,7 @@ if(!isset($_SESSION['is_login'])){
           <?php
             }
           ?>
-          </form>
+          
 					<div class=""><?=$row['likes']?> 명이 좋아합니다</div>
             
           </div>

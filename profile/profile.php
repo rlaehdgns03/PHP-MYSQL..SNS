@@ -100,7 +100,7 @@ if(!isset($_SESSION['is_login'])){
 
     <!-- My Post -->
     <?php
-      $sql = "SELECT topic.no, description, created, name FROM topic LEFT JOIN user ON topic.user_no = user.no WHERE user.no = ".$_SESSION['no']." ORDER BY created DESC";
+      $sql = "SELECT topic.no, description, created, name, likes FROM topic LEFT JOIN user ON topic.user_no = user.no WHERE user.no = ".$_SESSION['no']." ORDER BY created DESC";
       $result = mysqli_query($conn, $sql);
       while($row = mysqli_fetch_array($result)){
     ?>
@@ -127,8 +127,27 @@ if(!isset($_SESSION['is_login'])){
             </div>
 
             <div class="card-footer">
-                <a href="#" class="card-link"><i class="fa fa-gittip"></i></a>
-                <a href="#" class="card-link"><i class="fa fa-comment"></i></a>
+            <?php 
+              $results = mysqli_query($conn, "SELECT * FROM likes WHERE user_no=".$_SESSION['no']." AND description_no=".$row['no']."");
+            
+              if (mysqli_num_rows($results) === 1 ) { ?>
+      
+                <a href="./profile_likes.php?likes=liked&no=<?=$row['no']?>" class="card-link"><i class="fa fa-heart"></i></a>
+                <a href="#" class="card-link"><i class="fa fa-comment-o"></i></a>
+
+              <?php
+                }else {
+              ?>
+        
+                <a href="./profile_likes.php?likes=unliked&no=<?=$row['no']?>" class="card-link"><i class="fa fa-heart-o"></i></a> 
+                <a href="#" class="card-link"><i class="fa fa-comment-o"></i></a>
+
+              <?php
+                }
+              ?>
+              
+              <div class=""><?=$row['likes']?> 명이 좋아합니다</div>
+                
             </div>
           </div>
           <?php
