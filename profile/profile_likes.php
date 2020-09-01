@@ -14,7 +14,7 @@
 
     mysqli_query($conn, "INSERT INTO likes (user_no, description_no) VALUES ('".$_SESSION['no']."', '".$description_no."')");
     mysqli_query($conn, "UPDATE topic SET likes=$n+1 WHERE no='".$description_no."'");
-    header('Location: ./main_feed.php');
+    header('Location: ./profile.php');
   }
   
   if ($_GET['likes'] === 'liked') {
