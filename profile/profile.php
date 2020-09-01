@@ -30,6 +30,11 @@ if(!isset($_SESSION['is_login'])){
   <nav class="navbar navbar-dark bg-primary">
     <a href="../main_feed/main_feed.php" class="navbar-brand">SNS</a>
     <form class="form-inline">
+        <ul class="navbar-nav mr-2">
+          <li class="nav-item">
+            <a class="nav-link" href="../login/logout.php">Logout</a>
+          </li>
+        </ul>
       <div class="input-group">
         <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2">
           <div class="input-group-append">
@@ -144,6 +149,7 @@ if(!isset($_SESSION['is_login'])){
 
               <?php
                 }
+
               ?>
               
               <div class=""><?=$row['likes']?> 명이 좋아합니다</div>
