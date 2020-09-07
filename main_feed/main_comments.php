@@ -28,7 +28,7 @@ if(!isset($_SESSION['is_login'])){
 <body>
   <!-- Navigation -->
   <nav class="navbar navbar-dark bg-primary">
-    <a href="./main_feed.php" class="navbar-brand">SNS</a>
+    <a href="../main_feed/main_feed.php" class="navbar-brand">SNS</a>
     <form class="form-inline">
       <div class="input-group">
         <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2">
@@ -43,31 +43,14 @@ if(!isset($_SESSION['is_login'])){
   <!-- Navigation -->
 
   <!-- Page Section -->
+
   <div class="container-fluid gedf-wrapper">
-    <div class="row">
-
-    <!-- Profile Section -->
-    <div class="col-md-3">
-      <div class="card">
-        <div class="card-body text-center">
-          <img class="rounded-circle img-responsive center-block"  width="200" height="200"  src="https://scontent-sin6-2.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/92250598_1063915177321734_748581756498782108_n.jpg?_nc_ht=scontent-sin6-2.cdninstagram.com&_nc_cat=106&_nc_ohc=JN52q2w3T64AX_Q4qvV&oh=8035593b9ff284f4ccdc0bef999fc345&oe=5F64C329" alt="user-image">
-          <div class="h5 text-center mt-4"><?=$_SESSION['name']?></div>         
-        </div>
-          <ul class="list-group list-group-flush text-center">
-            <li class="list-group-item">
-              <div class="h6 text-muted">friends</div>
-              <div class="h5">200</div>
-            </li>
-          </ul>
-      </div>
-    </div>
-    <!-- //profile section -->
-
-    <div class="col-md-9 gedf-main">
-
+  <div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
     <!-- My Post -->
     <?php
-      $sql = "SELECT * FROM topic";
+      $sql = "SELECT topic.no,description,created,likes,name FROM topic LEFT JOIN user on topic.user_no = user.no";
       $result = mysqli_query($conn, $sql);
       while($row = mysqli_fetch_array($result)){
         if($row['no'] === $_GET['no']){
@@ -75,48 +58,59 @@ if(!isset($_SESSION['is_login'])){
         <div class="card gedf-card">
           <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="mr-2">
-                        <img class="rounded-circle" width="45" src="https://scontent-sin6-2.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/92250598_1063915177321734_748581756498782108_n.jpg?_nc_ht=scontent-sin6-2.cdninstagram.com&_nc_cat=106&_nc_ohc=JN52q2w3T64AX_Q4qvV&oh=8035593b9ff284f4ccdc0bef999fc345&oe=5F64C329" alt="">
-                    </div>
-                    <div class="ml-2">
-                        <div class="h5 m-0"><?=$_SESSION['name']?></div>
-                        <div class="h7 text-muted"><?=$row['created']?></div>
-                    </div>
-                </div>
-                <div class="btn-group">
-                  <form action="main_delete.php" method="post" onsubmit="if(!confirm('삭제하시겠습니까?')){return false;}"> 
-                    <input type="hidden" name="no" value=<?=$_GET['no']?>>
-                    <input type="submit" class="btn btn-primary" value="삭제">
-                  </form>
-                </div>
+              <div class="d-flex justify-content-between align-items-center">
+                  <div class="mr-2">
+                      <img class="rounded-circle" width="45" src="https://scontent-sin6-2.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/92250598_1063915177321734_748581756498782108_n.jpg?_nc_ht=scontent-sin6-2.cdninstagram.com&_nc_cat=106&_nc_ohc=JN52q2w3T64AX_Q4qvV&oh=8035593b9ff284f4ccdc0bef999fc345&oe=5F64C329" alt="">
+                  </div>
+                  <div class="ml-2">
+                      <div class="h5 m-0"><?=$row['name']?></div>
+                      <div class="h7 text-muted"><?=$row['created']?></div>
+                  </div>
+              </div>  
             </div>
           </div>
-          <form action="main_process_update.php" method="post">
-          <input type="hidden" name="no" value=<?=$_GET['no']?>>
+
           <div class="card-body">
             <div class="card-body">
               <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
                   <div class="form-group">
                     <label class="sr-only" for="message">post</label>
-                    <textarea class="form-control" id="message" rows="3" name="description"><?=$row['description']?></textarea>
+                    <p class="card-text"><?=$row['description']?></p>
                   </div>
                 </div>
-                <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
-              </div>
+                <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab"></div>
+              </div>  
             </div>
-            <input type="submit" class="btn btn-primary" value="업로드">
+            <div class="card-footer">
+            <?php 
+              $results = mysqli_query($conn, "SELECT * FROM likes WHERE user_no=".$_SESSION['no']." AND description_no=".$row['no']."");
+            
+              if (mysqli_num_rows($results) === 1 ) { ?>
+      
+                <a href="./main_likes_cm.php?likes=liked&no=<?=$row['no']?>" class="card-link"><i class="fa fa-heart"></i></a>            
+
+              <?php
+                }else {
+              ?>
+        
+                <a href="./main_likes_cm.php?likes=unliked&no=<?=$row['no']?>" class="card-link"><i class="fa fa-heart-o"></i></a> 
+
+              <?php
+
+                }
+
+              ?>
+              <div class="">좋아요 <?=$row['likes']?> 개</div>
+            </div>
           </div>
-          </form>
-          <div class="card-footer">
-          </div>
-      </div>
       <?php
           }
         }    
       ?>
-        
+    </div>
+    </div>
+    </div>
     <!-- //My Post -->
             </div>
         </div>

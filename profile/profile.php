@@ -138,21 +138,21 @@ if(!isset($_SESSION['is_login'])){
               if (mysqli_num_rows($results) === 1 ) { ?>
       
                 <a href="./profile_likes.php?likes=liked&no=<?=$row['no']?>" class="card-link"><i class="fa fa-heart"></i></a>
-                <a href="#" class="card-link"><i class="fa fa-comment-o"></i></a>
+                <a href="./profile_comments.php?no=<?=$row['no']?>" class="card-link"><i class="fa fa-comment-o"></i></a>
 
               <?php
                 }else {
               ?>
         
                 <a href="./profile_likes.php?likes=unliked&no=<?=$row['no']?>" class="card-link"><i class="fa fa-heart-o"></i></a> 
-                <a href="#" class="card-link"><i class="fa fa-comment-o"></i></a>
+                <a href="./profile_comments.php?no=<?=$row['no']?>" class="card-link"><i class="fa fa-comment-o"></i></a>
 
               <?php
                 }
 
               ?>
               
-              <div class=""><?=$row['likes']?> 명이 좋아합니다</div>
+              <div class="">좋아요 <?=$row['likes']?> 개</div>
                 
             </div>
           </div>

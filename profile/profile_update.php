@@ -63,23 +63,7 @@ if(!isset($_SESSION['is_login'])){
     </div>
     <!-- //profile section -->
       
-    <!-- Post Upload Section -->
     <div class="col-md-9 gedf-main">
-      <div class="card gedf-card">
-        <div class="card-header">
-        </div>
-          <div class="card-body">
-            <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
-              </div>
-              <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
-            </div>
-          </div>
-          <div class="btn-toolbar justify-content-between">
-          </div>
-        </div>
-      </div>
-    <!-- //Post Upload Section -->
 
     <!-- My Post -->
     <?php
