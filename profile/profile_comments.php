@@ -107,7 +107,7 @@ if(!isset($_SESSION['is_login'])){
               <input type="submit" class="btn btn-primary" value="게시"><br><br>
               </form>
               <?php
-                $sql = "SELECT topic.no, topic.created, likes, name, comment, comments.created, comments.no AS cn FROM topic LEFT JOIN comments ON topic.no = description_no LEFT JOIN user ON comments.user_no = user.no";
+                $sql = "SELECT topic.no, topic.created, likes, name, comment, comments.user_no AS cun,comments.created, comments.no AS cn FROM topic LEFT JOIN comments ON topic.no = description_no LEFT JOIN user ON comments.user_no = user.no";
                 $result_a = mysqli_query($conn, $sql)or die();
                 while($row_a = mysqli_fetch_array($result_a)){
                   if($row_a['no'] === $_GET['no']){
@@ -116,6 +116,7 @@ if(!isset($_SESSION['is_login'])){
               <p><?=$row_a['comment']?></p>
               <?php
                 if(isset($row_a['comment'])){
+                  if($row_a['cun'] === $_SESSION['no']){
               ?>
               <form action="profile_comments_delete.php?no=<?=$_GET['no']?>" method="post" onsubmit="if(!confirm('삭제하시겠습니까?')){return false;}"> 
                 <input type="hidden" name="no" value=<?=$row_a['cn']?>>
@@ -123,6 +124,7 @@ if(!isset($_SESSION['is_login'])){
               </form>
               <br>
               <?php
+                    }
                   }
                 }
               }
