@@ -101,7 +101,29 @@ if(!isset($_SESSION['is_login'])){
                 }
 
               ?>
-              <div class="">좋아요 <?=$row['likes']?> 개</div>
+              <div class="">좋아요 <?=$row['likes']?>개</div>
+              <br>
+              <form action="./main_comments_create.php?no=<?=$_GET['no']?>" method="POST">
+              <textarea class="form-control" id="message" rows="1" name="comment" placeholder="댓글 달기"></textarea><br>
+              <input type="submit" class="btn btn-primary" value="게시"><br><br>
+              </form>
+              <?php
+                $sql = "SELECT topic.no, topic.created, likes, name, comment, comments.created,comments.no AS cn FROM topic LEFT JOIN comments ON topic.no = description_no LEFT JOIN user ON comments.user_no = user.no";
+                $result_a = mysqli_query($conn, $sql);
+                while($row_a = mysqli_fetch_array($result_a)){
+                  if($row_a['no'] === $_GET['no']){
+              ?> 
+              <div class="h5 m-0"><?=$row_a['name']?></div>
+              <?=$row_a['comment']?>
+              <form action="main_comments_delete.php?no=<?=$_GET['no']?>" method="post" onsubmit="if(!confirm('삭제하시겠습니까?')){return false;}"> 
+                <input type="hidden" name="no" value=<?=$row_a['cn']?>>
+                <input type="submit" class="btn btn-primary" value="X">
+              </form>
+              <br>
+              <?php
+                }
+              }
+              ?>
             </div>
           </div>
       <?php

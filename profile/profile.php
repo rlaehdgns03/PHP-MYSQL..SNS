@@ -152,7 +152,7 @@ if(!isset($_SESSION['is_login'])){
 
               ?>
               
-              <div class="">좋아요 <?=$row['likes']?> 개</div>
+              <div class="">좋아요 <?=$row['likes']?>개</div>
                 
             </div>
           </div>
