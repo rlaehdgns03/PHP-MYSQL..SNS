@@ -60,7 +60,7 @@ if(!isset($_SESSION['is_login'])){
             <div class="d-flex justify-content-between align-items-center">
               <div class="d-flex justify-content-between align-items-center">
                   <div class="mr-2">
-                      <img class="rounded-circle" width="45" src="https://scontent-sin6-2.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/92250598_1063915177321734_748581756498782108_n.jpg?_nc_ht=scontent-sin6-2.cdninstagram.com&_nc_cat=106&_nc_ohc=JN52q2w3T64AX_Q4qvV&oh=8035593b9ff284f4ccdc0bef999fc345&oe=5F64C329" alt="">
+                      <img class="rounded-circle" width="45" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fkinimage.naver.net%2F20200818_247%2F1597730197036S5pFh_JPEG%2F1597730196729.jpg&type=sc960_832" alt="">
                   </div>
                   <div class="ml-2">
                       <div class="h5 m-0"><?=$row['name']?></div>
@@ -112,8 +112,8 @@ if(!isset($_SESSION['is_login'])){
                 while($row_a = mysqli_fetch_array($result_a)){
                   if($row_a['no'] === $_GET['no']){
               ?> 
-              <div class="h5 m-0"><?=$row_a['name']?></div>
-              <p><?=$row_a['comment']?></p>
+              <div style=display:inline class="h5 m-0"><?=$row_a['name']?> </div>
+              <div style=display:inline class="h7 m-0"><?=$row_a['comment']?><div>
               <?php
                 if(isset($row_a['comment'])){
                   if($row_a['cun'] === $_SESSION['no']){

@@ -50,7 +50,7 @@ if(!isset($_SESSION['is_login'])){
     <div class="col-md-3">
       <div class="card">
         <div class="card-body text-center">
-          <img class="rounded-circle img-responsive center-block"  width="200" height="200"  src="https://scontent-sin6-2.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/92250598_1063915177321734_748581756498782108_n.jpg?_nc_ht=scontent-sin6-2.cdninstagram.com&_nc_cat=106&_nc_ohc=JN52q2w3T64AX_Q4qvV&oh=8035593b9ff284f4ccdc0bef999fc345&oe=5F64C329" alt="user-image">
+          <img class="rounded-circle img-responsive center-block"  width="200" height="200"  src="https://search.pstatic.net/common/?src=http%3A%2F%2Fkinimage.naver.net%2F20200818_247%2F1597730197036S5pFh_JPEG%2F1597730196729.jpg&type=sc960_832" alt="user-image">
           <div class="h5 text-center mt-4"><?=$_SESSION['name']?></div>     
         </div>
           <ul class="list-group list-group-flush text-center">
@@ -77,7 +77,7 @@ if(!isset($_SESSION['is_login'])){
             <div class="d-flex justify-content-between align-items-center">
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="mr-2">
-                        <img class="rounded-circle" width="45" src="https://scontent-sin6-2.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/92250598_1063915177321734_748581756498782108_n.jpg?_nc_ht=scontent-sin6-2.cdninstagram.com&_nc_cat=106&_nc_ohc=JN52q2w3T64AX_Q4qvV&oh=8035593b9ff284f4ccdc0bef999fc345&oe=5F64C329" alt="">
+                        <img class="rounded-circle" width="45" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fkinimage.naver.net%2F20200818_247%2F1597730197036S5pFh_JPEG%2F1597730196729.jpg&type=sc960_832" alt="">
                     </div>
                     <div class="ml-2">
                         <div class="h5 m-0"><?=$_SESSION['name']?></div>
