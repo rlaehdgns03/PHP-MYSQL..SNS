@@ -135,7 +135,7 @@ if(!isset($_SESSION['is_login'])){
                       } elseif ($y > $diff && $diff >= $d) {
                           $result_t = round($diff/$d) . '일전';
                       } else {
-                        $result_t = date('Y.m.d.', $row['created']);
+                        $result_t = date('Y.m.d.', strtotime($row['created']));
                       }
                     ?>
                     <div class="h7 text-muted"><?=$result_t?></div>

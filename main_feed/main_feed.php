@@ -134,7 +134,7 @@ if(!isset($_SESSION['is_login'])){
                           $d = $h * 24; 
                           $y = $d * 10; 
                       
-                          if ( 0 > $diff && $diff < $s) {
+                          if ($diff < $s) {
                               $result_t = $diff . '초전';
                           } elseif ($h > $diff && $diff >= $s) {
                               $result_t = round($diff/$s) . '분전';
@@ -143,7 +143,7 @@ if(!isset($_SESSION['is_login'])){
                           } elseif ($y > $diff && $diff >= $d) {
                               $result_t = round($diff/$d) . '일전';
                           } else {
-                            $result_t = date('Y.m.d.', $row['created']);
+                            $result_t = date('Y.m.d.', strtotime($row['created']));
                           }
                         ?>
                         <div class="h7 text-muted"><?=$result_t?></div>
