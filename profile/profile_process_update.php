@@ -7,8 +7,7 @@
   $sql = "
   UPDATE topic
     SET
-      description = '{$_POST['description']}',
-      created = NOW()
+      description = '{$_POST['description']}'
     WHERE 
       no = '{$_POST['no']}'
   ";   

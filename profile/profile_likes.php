@@ -14,7 +14,7 @@
 
     mysqli_query($conn, "INSERT INTO likes (user_no, description_no) VALUES ('".$_SESSION['no']."', '".$description_no."')");
     mysqli_query($conn, "UPDATE topic SET likes=$n+1 WHERE no='".$description_no."'");
-    header('Location: ./profile.php');
+    header('Location: ./profile.php?no='.$row['user_no']);
   }
   
   if ($_GET['likes'] === 'liked') {
@@ -25,6 +25,6 @@
 
     mysqli_query($conn, "DELETE FROM likes WHERE description_no='".$description_no."' AND user_no='".$_SESSION['no']."'");
     mysqli_query($conn, "UPDATE topic SET likes=$n-1 WHERE no='".$description_no."'");
-    header('Location: ./profile.php');
+    header('Location: ./profile.php?no='.$row['user_no']);
   }
 ?>

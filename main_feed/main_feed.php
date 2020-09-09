@@ -50,7 +50,7 @@ if(!isset($_SESSION['is_login'])){
             </a>
           </li>
           <li class="nav-item">
-              <a class="user-image" href="../profile/profile.php">
+              <a class="user-image" href="../profile/profile.php?no=<?=$_SESSION['no']?>">
               <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fkinimage.naver.net%2F20200818_247%2F1597730197036S5pFh_JPEG%2F1597730196729.jpg&type=sc960_832" alt="user-img" class="rounded-circle mt-1 ml-3 mr-2" width="30" height="30">
               </a>
           </li>
@@ -122,7 +122,9 @@ if(!isset($_SESSION['is_login'])){
             <div class="d-flex justify-content-between align-items-center">
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="mr-2">
-                        <img class="rounded-circle" width="45" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fkinimage.naver.net%2F20200818_247%2F1597730197036S5pFh_JPEG%2F1597730196729.jpg&type=sc960_832" alt="">
+                        <a href="../profile/profile.php?no=<?=$row['user_no']?>">
+                          <img class="rounded-circle" width="45" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fkinimage.naver.net%2F20200818_247%2F1597730197036S5pFh_JPEG%2F1597730196729.jpg&type=sc960_832" alt="">
+                        </a>
                     </div>
                     <div class="ml-2">
                         <div class="h5 m-0"><?=$row['name']?></div>

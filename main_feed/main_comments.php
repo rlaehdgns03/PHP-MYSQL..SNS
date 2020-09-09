@@ -50,7 +50,7 @@ if(!isset($_SESSION['is_login'])){
   <div class="col-md-8">
     <!-- My Post -->
     <?php
-      $sql = "SELECT topic.no,description,created,likes,name FROM topic LEFT JOIN user on topic.user_no = user.no";
+      $sql = "SELECT topic.no,description,created,user_no,likes,name FROM topic LEFT JOIN user on topic.user_no = user.no";
       $result = mysqli_query($conn, $sql);
       while($row = mysqli_fetch_array($result)){
         if($row['no'] === $_GET['no']){
@@ -60,11 +60,33 @@ if(!isset($_SESSION['is_login'])){
             <div class="d-flex justify-content-between align-items-center">
               <div class="d-flex justify-content-between align-items-center">
                   <div class="mr-2">
+                    <a href="../profile/profile.php?no=<?=$row['user_no']?>">
                       <img class="rounded-circle" width="45" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fkinimage.naver.net%2F20200818_247%2F1597730197036S5pFh_JPEG%2F1597730196729.jpg&type=sc960_832" alt="">
+                    </a>
                   </div>
                   <div class="ml-2">
                       <div class="h5 m-0"><?=$row['name']?></div>
-                      <div class="h7 text-muted"><?=$row['created']?></div>
+                      <?php
+                          $diff = time() - strtotime($row['created']);
+                          
+                          $s = 60; 
+                          $h = $s * 60; 
+                          $d = $h * 24; 
+                          $y = $d * 10; 
+                      
+                          if ($diff < $s) {
+                              $result_t = $diff . '초전';
+                          } elseif ($h > $diff && $diff >= $s) {
+                              $result_t = round($diff/$s) . '분전';
+                          } elseif ($d > $diff && $diff >= $h) {
+                              $result_t = round($diff/$h) . '시간전';
+                          } elseif ($y > $diff && $diff >= $d) {
+                              $result_t = round($diff/$d) . '일전';
+                          } else {
+                            $result_t = date('Y.m.d.', strtotime($row['created']));
+                          }
+                        ?>
+                        <div class="h7 text-muted"><?=$result_t?></div>
                   </div>
               </div>  
             </div>
@@ -113,7 +135,7 @@ if(!isset($_SESSION['is_login'])){
                   if($row_a['no'] === $_GET['no']){
               ?> 
               <div style=display:inline class="h5 m-0"><?=$row_a['name']?> </div>
-              <div style=display:inline class="h7 m-0"><?=$row_a['comment']?><div>
+              <div style=display:inline class="h7 m-0"><?=$row_a['comment']?><div><br>
               <?php
                 if(isset($row_a['comment'])){
                   if($row_a['cun'] === $_SESSION['no']){
