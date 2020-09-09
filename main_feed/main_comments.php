@@ -101,8 +101,7 @@ if(!isset($_SESSION['is_login'])){
                 }
 
               ?>
-              <div class="">좋아요 <?=$row['likes']?>개</div>
-              <br>
+              <div class="">좋아요 <?=$row['likes']?>개</div><br>
               <form action="./main_comments_create.php?no=<?=$_GET['no']?>" method="POST">
               <textarea class="form-control" id="message" rows="1" name="comment" placeholder="댓글 달기"></textarea><br>
               <input type="submit" class="btn btn-primary" value="게시"><br><br>
