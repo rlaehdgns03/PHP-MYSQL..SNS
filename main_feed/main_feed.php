@@ -181,7 +181,7 @@ if(!isset($_SESSION['is_login'])){
             }else {
           ?>
     
-            <a href="./main_likes.php?likes=unliked&no=<?=$row['no']?>" class="card-link"><i class="fa fa-heart-o"></i></a> 
+            <a href="./main_likes.php?likes=unliked&no=<?=$row['no']?>" class="card-link"><i class="fa fa-heart-o"></i></a>
             <a href="./main_comments.php?no=<?=$row['no']?>" class="card-link"><i class="fa fa-comment-o"></i></a>
 
           <?php
