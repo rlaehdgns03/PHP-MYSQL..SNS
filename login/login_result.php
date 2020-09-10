@@ -1,12 +1,6 @@
 <?php
-  session_start();
-?>
-<?php
-  $conn = mysqli_connect(
-    "localhost", 
-    "root", 
-    "adsdads1", 
-    "post");
+session_start();
+require("../lib/database.php");
 
   if($_POST["id"] == "" || $_POST["password"] == ""){ 
 

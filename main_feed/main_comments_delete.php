@@ -1,9 +1,5 @@
 <?php
-  $conn = mysqli_connect(
-    "localhost",
-    "root",
-    "adsdads1",
-    "post");
+require("../lib/database.php");
   $sql = "
     DELETE 
     FROM comments

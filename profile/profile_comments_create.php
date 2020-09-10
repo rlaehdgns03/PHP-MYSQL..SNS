@@ -2,11 +2,7 @@
   session_start();
 ?>
 <?php
-  $conn = mysqli_connect(
-    "localhost", 
-    "root", 
-    "adsdads1", 
-    "post");
+require("../lib/database.php");
   $sql = "
   INSERT INTO comments
     (description_no, user_no, comment, created)

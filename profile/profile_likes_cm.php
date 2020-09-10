@@ -1,10 +1,6 @@
 <?php
-  session_start();
-  $conn = mysqli_connect(
-    "localhost", 
-    "root", 
-    "adsdads1", 
-    "post");
+session_start();
+require("../lib/database.php");
   
   if ($_GET['likes'] === 'unliked') {
     $description_no = $_GET['no'];

@@ -1,13 +1,8 @@
 <?php
-  session_start();
+session_start();
+require("../lib/database.php");
 ?>
 <?php
-  $conn = mysqli_connect(
-    "localhost", 
-    "root", 
-    "adsdads1", 
-    "post");
-
   if($_POST["id"] == "" || $_POST["password"] == "" || $_POST["repassword"] == "" || $_POST['name'] == ""){ 
 
     echo '<script> location.href="./sign_up.php"; </script>'; 
