@@ -118,7 +118,7 @@ if(!isset($_SESSION['is_login'])){
 
     <!-- My Post -->
     <?php
-      $sql = "SELECT topic.no, description, created, name, likes FROM topic LEFT JOIN user ON topic.user_no = user.no WHERE user.no = ".$_GET['no']." ORDER BY created DESC";
+      $sql = "SELECT topic.no, description, created, user_no,name, likes FROM topic LEFT JOIN user ON topic.user_no = user.no WHERE user.no = ".$_GET['no']." ORDER BY created DESC";
       $result = mysqli_query($conn, $sql);
       while($row = mysqli_fetch_array($result)){
     ?>
@@ -127,10 +127,14 @@ if(!isset($_SESSION['is_login'])){
               <div class="d-flex justify-content-between align-items-center">
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="mr-2">
+                  <a href="./profile.php?no=<?=$row['user_no']?>">
                     <img class="rounded-circle" width="45" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fkinimage.naver.net%2F20200818_247%2F1597730197036S5pFh_JPEG%2F1597730196729.jpg&type=sc960_832" alt="">
+                  </a>
                   </div>
                   <div class="ml-2">
+                  <a href="./profile.php?no=<?=$row['user_no']?>">
                     <div class="h5 m-0"><?=$row['name']?></div>
+                  </a>  
                     <?php
                       $diff = time() - strtotime($row['created']);
 

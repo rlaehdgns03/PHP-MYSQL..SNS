@@ -127,7 +127,9 @@ if(!isset($_SESSION['is_login'])){
                         </a>
                     </div>
                     <div class="ml-2">
+                      <a href="../profile/profile.php?no=<?=$row['user_no']?>">
                         <div class="h5 m-0"><?=$row['name']?></div>
+                      </a>  
                         <?php
                           $diff = time() - strtotime($row['created']);
                           

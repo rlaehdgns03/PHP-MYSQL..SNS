@@ -60,12 +60,14 @@ if(!isset($_SESSION['is_login'])){
             <div class="d-flex justify-content-between align-items-center">
               <div class="d-flex justify-content-between align-items-center">
                   <div class="mr-2">
-                    <a href="../profile/profile.php?no=<?=$row['user_no']?>">
+                    <a href="./profile.php?no=<?=$row['user_no']?>">
                       <img class="rounded-circle" width="45" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fkinimage.naver.net%2F20200818_247%2F1597730197036S5pFh_JPEG%2F1597730196729.jpg&type=sc960_832" alt="">
                     </a>
                   </div>
                   <div class="ml-2">
-                      <div class="h5 m-0"><?=$row['name']?></div>
+                  <a href="./profile.php?no=<?=$row['user_no']?>">
+                    <div class="h5 m-0"><?=$row['name']?></div>
+                  </a>
                       <?php
                           $diff = time() - strtotime($row['created']);
                           
@@ -129,12 +131,14 @@ if(!isset($_SESSION['is_login'])){
               <input type="submit" class="btn btn-primary" value="게시"><br><br>
               </form>
               <?php
-                $sql = "SELECT topic.no, topic.created, likes, name, comment, comments.user_no AS cun,comments.created, comments.no AS cn FROM topic LEFT JOIN comments ON topic.no = description_no LEFT JOIN user ON comments.user_no = user.no";
+                $sql = "SELECT topic.no, topic.created, topic.user_no, likes, name, comment, comments.user_no AS cun,comments.created, comments.no AS cn FROM topic LEFT JOIN comments ON topic.no = description_no LEFT JOIN user ON comments.user_no = user.no";
                 $result_a = mysqli_query($conn, $sql)or die();
                 while($row_a = mysqli_fetch_array($result_a)){
                   if($row_a['no'] === $_GET['no']){
               ?> 
-              <div style=display:inline class="h5 m-0"><?=$row_a['name']?> </div>
+              <a href="./profile.php?no=<?=$row['user_no']?>">
+                <div style=display:inline class="h5 m-0"><?=$row_a['name']?> </div>
+              </a>
               <div style=display:inline class="h7 m-0"><?=$row_a['comment']?><div><br>
               <?php
                 if(isset($row_a['comment'])){

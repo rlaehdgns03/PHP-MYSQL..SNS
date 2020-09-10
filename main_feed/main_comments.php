@@ -65,7 +65,9 @@ if(!isset($_SESSION['is_login'])){
                     </a>
                   </div>
                   <div class="ml-2">
+                    <a href="../profile/profile.php?no=<?=$row['user_no']?>">
                       <div class="h5 m-0"><?=$row['name']?></div>
+                    </a>  
                       <?php
                           $diff = time() - strtotime($row['created']);
                           
@@ -133,8 +135,10 @@ if(!isset($_SESSION['is_login'])){
                 $result_a = mysqli_query($conn, $sql);
                 while($row_a = mysqli_fetch_array($result_a)){
                   if($row_a['no'] === $_GET['no']){
-              ?> 
-              <div style=display:inline class="h5 m-0"><?=$row_a['name']?> </div>
+              ?>
+              <a href="../profile/profile.php?no=<?=$row['user_no']?>">
+                <div style=display:inline class="h5 m-0"><?=$row_a['name']?> </div>
+              </a>
               <div style=display:inline class="h7 m-0"><?=$row_a['comment']?><div><br>
               <?php
                 if(isset($row_a['comment'])){
