@@ -144,7 +144,7 @@ if(!isset($_SESSION['is_login'])){
                 if(isset($row_a['comment'])){
                   if($row_a['cun'] === $_SESSION['no']){
               ?>
-              <a href="profile_comments_delete.php?no=<?=$row_a['cn']?>&dn=<?=$row_a['dn']?>" class="ml-3">X</a>
+              <a href="profile_comments_delete.php?no=<?=$row_a['cn']?>&dn=<?=$row_a['dn']?>" class="ml-3" onclick="return confirm('삭제하시겠습니까?')">X</a>
               <?php
                     }
                 }  
