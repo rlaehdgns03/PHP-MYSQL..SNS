@@ -164,7 +164,7 @@ if(!isset($_SESSION['is_login'])){
                 if($row['name'] === $_SESSION['name']){
 
                 ?>
-                <a href="main_update.php?no=<?=$row['no']?>" class="btn btn-primary">수정</a> 
+                <a href="profile_update.php?no=<?=$row['no']?>" class="btn btn-primary">수정</a> 
                 <?php
                 }
                 ?>
