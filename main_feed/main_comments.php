@@ -131,27 +131,28 @@ if(!isset($_SESSION['is_login'])){
               <input type="submit" class="btn btn-primary" value="게시"><br><br>
               </form>
               <?php
-                $sql = "SELECT topic.no, topic.created, likes, name, comment, comments.user_no AS cun, comments.created, comments.no AS cn FROM topic LEFT JOIN comments ON topic.no = description_no LEFT JOIN user ON comments.user_no = user.no";
-                $result_a = mysqli_query($conn, $sql);
+                $sql = "SELECT topic.no, topic.created, likes, name, comment, comments.description_no AS dn, comments.user_no AS cun, comments.no AS cn FROM topic LEFT JOIN comments ON topic.no = description_no LEFT JOIN user ON comments.user_no = user.no";
+                $result_a = mysqli_query($conn, $sql)or die(mysqli_error($conn));
                 while($row_a = mysqli_fetch_array($result_a)){
                   if($row_a['no'] === $_GET['no']){
               ?>
-              <a href="../profile/profile.php?no=<?=$row['user_no']?>">
+              <a href="../profile/profile.php?no=<?=$row_a['cun']?>">
                 <div style=display:inline class="h5 m-0"><?=$row_a['name']?> </div>
               </a>
-              <div style=display:inline class="h7 m-0"><?=$row_a['comment']?><div><br>
+              <div style=display:inline class="h7 m-0"><?=$row_a['comment']?>
               <?php
                 if(isset($row_a['comment'])){
                   if($row_a['cun'] === $_SESSION['no']){
               ?>
-              <form action="main_comments_delete.php?no=<?=$_GET['no']?>" method="post" onsubmit="if(!confirm('삭제하시겠습니까?')){return false;}"> 
-                <input type="hidden" name="no" value=<?=$row_a['cn']?>>
-                <input type="submit" class="btn btn-primary" value="X">
-              </form>
-              <br>
+              <a href="main_comments_delete.php?no=<?=$row_a['cn']?>&dn=<?=$row_a['dn']?>" class="ml-3">X</a>
               <?php
                     }
-                  }
+                }  
+              ?>
+              <br><br>
+              </div>
+              <?php
+                  
                 }
               }
               ?>
