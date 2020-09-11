@@ -1,24 +1,9 @@
 <?php
-require("../lib/session.php");
+require("../lib/permission.php");
 require("../lib/database.php");
 require("../view/top.php");
+require("../view/nav.php");
 ?>
-<body>
-  <!-- Navigation -->
-  <nav class="navbar navbar-dark bg-primary">
-    <a href="./main_feed.php" class="navbar-brand">SNS</a>
-    <form class="form-inline">
-      <div class="input-group">
-        <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2">
-          <div class="input-group-append">
-            <button class="btn btn-outline-light" type="button" id="button-addon2">
-              <i class="fa fa-search"></i>
-            </button>
-          </div>
-      </div>
-    </form>
-  </nav>
-  <!-- Navigation -->
 
   <!-- Page Section -->
   <div class="container-fluid gedf-wrapper">
@@ -45,75 +30,46 @@ require("../view/top.php");
 
     <!-- My Post -->
     <?php
-      $sql = "SELECT * FROM topic";
+      $sql = "SELECT topic.no,description,created,user_no,likes,name FROM topic LEFT JOIN user on topic.user_no = user.no";
       $result = mysqli_query($conn, $sql);
       while($row = mysqli_fetch_array($result)){
         if($row['no'] === $_GET['no']){
     ?>
-        <div class="card gedf-card">
-          <div class="card-header">
-            <div class="d-flex justify-content-between align-items-center">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="mr-2">
-                        <img class="rounded-circle" width="45" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fkinimage.naver.net%2F20200818_247%2F1597730197036S5pFh_JPEG%2F1597730196729.jpg&type=sc960_832" alt="">
-                    </div>
-                    <div class="ml-2">
-                        <div class="h5 m-0"><?=$_SESSION['name']?></div>
-                        <?php
-                          $diff = time() - strtotime($row['created']);
-                          
-                          $s = 60; 
-                          $h = $s * 60; 
-                          $d = $h * 24; 
-                          $y = $d * 10; 
-                      
-                          if ($diff < $s) {
-                              $result_t = $diff . '초전';
-                          } elseif ($h > $diff && $diff >= $s) {
-                              $result_t = round($diff/$s) . '분전';
-                          } elseif ($d > $diff && $diff >= $h) {
-                              $result_t = round($diff/$h) . '시간전';
-                          } elseif ($y > $diff && $diff >= $d) {
-                              $result_t = round($diff/$d) . '일전';
-                          } else {
-                            $result_t = date('Y.m.d.', strtotime($row['created']));
-                          }
-                        ?>
-                        <div class="h7 text-muted"><?=$result_t?></div>
-                    </div>
-                </div>
-                <div class="btn-group">
-                  <form action="main_delete.php" method="post" onsubmit="if(!confirm('삭제하시겠습니까?')){return false;}"> 
-                    <input type="hidden" name="no" value=<?=$_GET['no']?>>
-                    <input type="submit" class="btn btn-primary" value="삭제">
-                  </form>
-                </div>
-            </div>
-          </div>
-          <form action="main_process_update.php" method="post">
-          <input type="hidden" name="no" value=<?=$_GET['no']?>>
-          <div class="card-body">
-            <div class="card-body">
-              <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
-                  <div class="form-group">
-                    <label class="sr-only" for="message">post</label>
-                    <textarea class="form-control" id="message" rows="3" name="description"><?=$row['description']?></textarea>
-                  </div>
-                </div>
-                <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
+    <div class="card gedf-card">
+      <div class="card-header">
+        <div class="d-flex justify-content-between align-items-center">
+          <?php
+          $site="main_delete.php";
+          require("../view/post_header.php");
+          require("../view/delete_btn.php");
+          ?>
+        </div>
+      </div>
+
+      <form action="main_process_update.php" method="post">
+      <input type="hidden" name="no" value=<?=$_GET['no']?>>
+      <div class="card-body">
+        <div class="card-body">
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+              <div class="form-group">
+                <label class="sr-only" for="message">post</label>
+                <textarea class="form-control" id="message" rows="3" name="description"><?=$row['description']?></textarea>
               </div>
             </div>
-            <input type="submit" class="btn btn-primary" value="업로드">
+            <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
           </div>
-          </form>
-          <div class="card-footer">
-          </div>
+        </div>
+        <input type="submit" class="btn btn-primary" value="업로드">
       </div>
-      <?php
-          }
-        }    
-      ?>
+      </form>
+      <div class="card-footer">
+      </div>
+  </div>
+  <?php
+      }
+    }    
+  ?>
         
     <!-- //My Post -->
             </div>

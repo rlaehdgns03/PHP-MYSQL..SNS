@@ -1,5 +1,5 @@
 <?php
-require("../lib/session.php");
+require("../lib/permission.php");
 require("../lib/database.php");
 require("../view/top.php");
 ?>
