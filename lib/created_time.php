@@ -15,6 +15,6 @@ if ($diff < $s) {
 } elseif ($y > $diff && $diff >= $d) {
     $result_t = round($diff/$d) . '일전';
 } else {
-  $result_t = date('Y.m.d.', strtotime($row['created']));
+  $result_t = date('Y년 n월 j일', strtotime($row['created']));
 }
 ?>

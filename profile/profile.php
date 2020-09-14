@@ -102,39 +102,9 @@ require("../view/top.php");
           <div class="card gedf-card">
             <div class="card-header">
               <div class="d-flex justify-content-between align-items-center">
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="mr-2">
-                  <a href="./profile.php?no=<?=$row['user_no']?>">
-                    <img class="rounded-circle" width="45" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fkinimage.naver.net%2F20200818_247%2F1597730197036S5pFh_JPEG%2F1597730196729.jpg&type=sc960_832" alt="">
-                  </a>
-                  </div>
-                  <div class="ml-2">
-                  <a href="./profile.php?no=<?=$row['user_no']?>">
-                    <div class="h5 m-0"><?=$row['name']?></div>
-                  </a>  
-                    <?php
-                      $diff = time() - strtotime($row['created']);
-
-                      $s = 60; 
-                      $h = $s * 60; 
-                      $d = $h * 24; 
-                      $y = $d * 10; 
-                  
-                      if ($diff < $s) {
-                          $result_t = $diff . '초전';
-                      } elseif ($h > $diff && $diff >= $s) {
-                          $result_t = round($diff/$s) . '분전';
-                      } elseif ($d > $diff && $diff >= $h) {
-                          $result_t = round($diff/$h) . '시간전';
-                      } elseif ($y > $diff && $diff >= $d) {
-                          $result_t = round($diff/$d) . '일전';
-                      } else {
-                        $result_t = date('Y.m.d.', strtotime($row['created']));
-                      }
-                    ?>
-                    <div class="h7 text-muted"><?=$result_t?></div>
-                  </div>
-                </div>
+                <?php
+                  require("../view/post_header.php");
+                ?>
                 <div class="btn-group">
                 <?php
 
