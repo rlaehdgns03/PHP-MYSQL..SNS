@@ -127,14 +127,14 @@ require("../view/top.php");
 					if (mysqli_num_rows($results) === 1 ) { ?>
 	
             <a href="./main_likes.php?likes=liked&no=<?=$row['no']?>" class="card-link"><i class="fa fa-heart"></i></a>
-            <a href="./main_comments.php?no=<?=$row['no']?>" class="card-link"><i class="fa fa-comment-o"></i></a>
+            <a href="./main_comments.php?likes=liked&no=<?=$row['no']?>" class="card-link"><i class="fa fa-comment-o"></i></a>
 
           <?php
             }else {
           ?>
     
             <a href="./main_likes.php?likes=unliked&no=<?=$row['no']?>" class="card-link"><i class="fa fa-heart-o"></i></a>
-            <a href="./main_comments.php?no=<?=$row['no']?>" class="card-link"><i class="fa fa-comment-o"></i></a>
+            <a href="./main_comments.php?likes=unliked&no=<?=$row['no']?>" class="card-link"><i class="fa fa-comment-o"></i></a>
 
           <?php
             }

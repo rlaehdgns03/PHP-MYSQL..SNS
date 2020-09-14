@@ -2,7 +2,7 @@
 require("../lib/permission.php");
 require("../lib/database.php");
 require("../view/top.php");
-require("../view/nav.php");
+require("../view/main_nav.php");
 ?>
 
   <!-- Page Section -->
@@ -18,8 +18,7 @@ require("../view/nav.php");
         </div>
           <ul class="list-group list-group-flush text-center">
             <li class="list-group-item">
-              <div class="h6 text-muted">friends</div>
-              <div class="h5">200</div>
+              
             </li>
           </ul>
       </div>

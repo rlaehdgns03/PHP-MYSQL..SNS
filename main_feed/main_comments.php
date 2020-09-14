@@ -2,7 +2,7 @@
 require("../lib/permission.php");
 require("../lib/database.php");
 require("../view/top.php");
-require("../view/nav.php");
+require("../view/main_nav.php");
 ?>
 
 <!-- Page Section -->
@@ -43,8 +43,8 @@ require("../view/nav.php");
     <div class="card-footer">
     <?php 
       $results = mysqli_query($conn, "SELECT * FROM likes WHERE user_no=".$_SESSION['no']." AND description_no=".$row['no']."");
-    
-      if (mysqli_num_rows($results) === true ) { ?>
+      
+      if ($_GET['likes'] === "liked") { ?>
         <a href="./main_likes_cm.php?likes=liked&no=<?=$row['no']?>" class="card-link"><i class="fa fa-heart"></i></a>            
       <?php
         }else {

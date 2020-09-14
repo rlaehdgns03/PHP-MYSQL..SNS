@@ -10,7 +10,7 @@ require("../lib/database.php");
 
     mysqli_query($conn, "INSERT INTO likes (user_no, description_no) VALUES ('".$_SESSION['no']."', '".$description_no."')");
     mysqli_query($conn, "UPDATE topic SET likes=$n+1 WHERE no='".$description_no."'");
-    header('Location: ./main_comments.php?no='.$_GET['no'].'');
+    header('Location: ./main_comments.php?likes=liked&no='.$_GET['no'].'');
   }
   
   if ($_GET['likes'] === 'liked') {
@@ -21,6 +21,6 @@ require("../lib/database.php");
 
     mysqli_query($conn, "DELETE FROM likes WHERE description_no='".$description_no."' AND user_no='".$_SESSION['no']."'");
     mysqli_query($conn, "UPDATE topic SET likes=$n-1 WHERE no='".$description_no."'");
-    header('Location: ./main_comments.php?no='.$_GET['no'].'');
+    header('Location: ./main_comments.php?likes=unliked&no='.$_GET['no'].'');
   }
 ?>

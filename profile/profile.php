@@ -43,8 +43,7 @@ require("../view/top.php");
         </div>
           <ul class="list-group list-group-flush text-center">
             <li class="list-group-item">
-              <div class="h6 text-muted">friends</div>
-              <div class="h5">200</div>
+              
             </li>
           </ul>
       </div>
@@ -161,14 +160,14 @@ require("../view/top.php");
               if (mysqli_num_rows($results) === 1 ) { ?>
       
                 <a href="./profile_likes.php?likes=liked&no=<?=$row['no']?>" class="card-link"><i class="fa fa-heart"></i></a>
-                <a href="./profile_comments.php?no=<?=$row['no']?>" class="card-link"><i class="fa fa-comment-o"></i></a>
+                <a href="./profile_comments.php?likes=liked&no=<?=$row['no']?>" class="card-link"><i class="fa fa-comment-o"></i></a>
 
               <?php
                 }else {
               ?>
         
                 <a href="./profile_likes.php?likes=unliked&no=<?=$row['no']?>" class="card-link"><i class="fa fa-heart-o"></i></a> 
-                <a href="./profile_comments.php?no=<?=$row['no']?>" class="card-link"><i class="fa fa-comment-o"></i></a>
+                <a href="./profile_comments.php?likes=unliked&no=<?=$row['no']?>" class="card-link"><i class="fa fa-comment-o"></i></a>
 
               <?php
                 }

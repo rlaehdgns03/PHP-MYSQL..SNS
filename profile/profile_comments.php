@@ -2,7 +2,7 @@
 require("../lib/permission.php");
 require("../lib/database.php");
 require("../view/top.php");
-require("../view/nav.php");
+require("../view/profile_nav.php");
 ?>
 
 <!-- Page Section -->
@@ -73,7 +73,7 @@ require("../view/nav.php");
           <?php 
             $results = mysqli_query($conn, "SELECT * FROM likes WHERE user_no=".$_SESSION['no']." AND description_no=".$row['no']."");
           
-            if (mysqli_num_rows($results) === 1 ) { ?>
+            if ($_GET['likes'] === "liked") { ?>
     
               <a href="./profile_likes_cm.php?likes=liked&no=<?=$row['no']?>" class="card-link"><i class="fa fa-heart"></i></a>            
 
