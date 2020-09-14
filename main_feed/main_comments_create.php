@@ -12,5 +12,5 @@ require("../lib/database.php");
     )
   ";   
   $result = mysqli_query($conn, $sql);
-  header("Location: ./main_comments.php?no=".$_GET['no']);
+  header("Location: ./main_comments.php?likes=".$_GET['likes']."&no=".$_GET['no']);
 ?>

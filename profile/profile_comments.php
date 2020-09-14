@@ -59,7 +59,7 @@ require("../view/profile_nav.php");
 
             ?>
             <div class="">좋아요 <?=$row['likes']?>개</div><br>
-            <form action="./profile_comments_create.php?no=<?=$_GET['no']?>" method="POST">
+            <form action="./profile_comments_create.php?likes=<?=$_GET['likes']?>&no=<?=$_GET['no']?>" method="POST">
             <textarea class="form-control" id="message" rows="1" name="comment" placeholder="댓글 달기"></textarea><br>
             <input type="submit" class="btn btn-primary" value="게시"><br><br>
             </form>
@@ -77,7 +77,7 @@ require("../view/profile_nav.php");
               if(isset($row_a['comment'])){
                 if($row_a['cun'] === $_SESSION['no']){
             ?>
-            <a href="profile_comments_delete.php?no=<?=$row_a['cn']?>&dn=<?=$row_a['dn']?>" class="ml-3" onclick="return confirm('삭제하시겠습니까?')">X</a>
+            <a href="profile_comments_delete.php?likes=<?=$_GET['likes']?>&no=<?=$row_a['cn']?>&dn=<?=$row_a['dn']?>" class="ml-3" onclick="return confirm('삭제하시겠습니까?')">X</a>
             <?php
                   }
               }  
