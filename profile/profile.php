@@ -31,7 +31,7 @@ require("../view/top.php");
 
     <!-- Profile Section -->
     <?php
-      $sql = "SELECT topic.no, description, created, name, likes FROM topic LEFT JOIN user ON topic.user_no = user.no WHERE user.no = ".$_GET['no']." ORDER BY created DESC";
+      $sql = "SELECT topic.no, description, created, user.no, name, likes FROM topic LEFT JOIN user ON topic.user_no = user.no WHERE user.no = ".$_GET['no']." ORDER BY created DESC";
       $result = mysqli_query($conn, $sql);
       $row = mysqli_fetch_array($result)
     ?>
