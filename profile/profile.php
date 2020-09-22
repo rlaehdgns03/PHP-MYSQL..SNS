@@ -13,14 +13,6 @@ require("../view/top.php");
             <a class="nav-link" href="../login/logout.php">Logout</a>
           </li>
         </ul>
-      <div class="input-group">
-        <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2">
-          <div class="input-group-append">
-            <button class="btn btn-outline-light" type="button" id="button-addon2">
-              <i class="fa fa-search"></i>
-            </button>
-          </div>
-      </div>
     </form>
   </nav>
   <!-- Navigation -->
@@ -31,9 +23,10 @@ require("../view/top.php");
 
     <!-- Profile Section -->
     <?php
-      $sql = "SELECT topic.no, description, created, user.no, name, likes FROM topic LEFT JOIN user ON topic.user_no = user.no WHERE user.no = ".$_GET['no']." ORDER BY created DESC";
+      $sql = "SELECT * FROM user WHERE no = ".$_GET['no'];
       $result = mysqli_query($conn, $sql);
-      $row = mysqli_fetch_array($result)
+      $row = mysqli_fetch_array($result);
+      #$len = $cOTLdata['char_data'] === null ? 0 : count($cOTLdata['char_data']);
     ?>
     <div class="col-md-3">
       <div class="card">
@@ -67,7 +60,7 @@ require("../view/top.php");
               </li>
             </ul>
         </div>
-        <form action="profile_create.php" method='post'>
+        <form action="profile_create.php?no=<?=$_GET['no']?>" method='post'>
         <input type="hidden" name="no" value=<?=$_SESSION['no']?>>
           <div class="card-body">
             <div class="tab-content" id="myTabContent">

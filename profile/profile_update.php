@@ -66,14 +66,14 @@ require("../view/profile_nav.php");
                     </div>
                 </div>
                 <div class="btn-group">
-                  <form action="profile_delete.php" method="post" onsubmit="if(!confirm('삭제하시겠습니까?')){return false;}"> 
+                  <form action="profile_delete.php?no=<?=$_GET['no']?>" method="post" onsubmit="if(!confirm('삭제하시겠습니까?')){return false;}"> 
                     <input type="hidden" name="no" value=<?=$_GET['no']?>>
                     <input type="submit" class="btn btn-primary" value="삭제">
                   </form>
                 </div>
             </div>
           </div>
-          <form action="profile_process_update.php" method="post">
+          <form action="profile_process_update.php?no=<?=$_GET['no']?>" method="post">
           <input type="hidden" name="no" value=<?=$_GET['no']?>>
           <div class="card-body">
             <div class="card-body">

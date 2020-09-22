@@ -14,20 +14,6 @@ require("../view/top.php");
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bell-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
-              </svg>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-envelope-fill ml-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
-              </svg>
-            </a>
-          </li>
-          <li class="nav-item">
               <a class="user-image" href="../profile/profile.php?no=<?=$_SESSION['no']?>">
               <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fkinimage.naver.net%2F20200818_247%2F1597730197036S5pFh_JPEG%2F1597730196729.jpg&type=sc960_832" alt="user-img" class="rounded-circle mt-1 ml-3 mr-2" width="30" height="30">
               </a>
@@ -35,16 +21,6 @@ require("../view/top.php");
           <li class="nav-item">
             <a class="nav-link" href="../login/logout.php">Logout</a>
           </li>
-          <form class="form-inline">
-            <div class="input-group">
-              <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2">
-                <div class="input-group-append">
-                  <button class="btn btn-outline-light" type="button" id="button-addon2">
-                    <i class="fa fa-search"></i>
-                  </button>
-                </div>
-            </div>
-          </form>
         </ul>
       </div>
     </div>

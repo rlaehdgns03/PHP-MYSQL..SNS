@@ -1,4 +1,5 @@
 <?php
+session_start();
 require("../lib/database.php");
   $sql = "
   UPDATE topic
@@ -8,5 +9,5 @@ require("../lib/database.php");
       no = '{$_POST['no']}'
   ";   
   $result = mysqli_query($conn, $sql);
-  header('Location: ./profile.php');
+  header('Location: ./profile.php?no='.$_SESSION['no']);
 ?>

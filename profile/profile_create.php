@@ -10,5 +10,5 @@ require("../lib/database.php");
     )
   ";   
   $result = mysqli_query($conn, $sql);
-  header('Location: ./profile.php');
+  header('Location: ./profile.php?no='.$_GET['no']);
 ?>
